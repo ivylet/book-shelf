@@ -1,69 +1,39 @@
-# name: deploy
-
-# on:
-#     push:
-#     workflow_dispatch:
-#     # schedule:
-#     #     # Runs everyday at 8:00 AM
-#     #     - cron: "0 0 * * *"
-
-# jobs:
-#     build:
-#         runs-on: ubuntu-latest
-#         steps:
-#             - name: Checkout
-#               uses: actions/checkout@v2
-#               with:
-#                   submodules: true
-#                   fetch-depth: 0
-
-#             - name: Setup Hugo
-#               uses: peaceiris/actions-hugo@v2
-#               with:
-#                   hugo-version: "latest"
-
-#             - name: Build Web
-#               run: hugo
-
-#             - name: Deploy Web
-#               uses: peaceiris/actions-gh-pages@v3
-#               with:
-#                   PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-#                   EXTERNAL_REPOSITORY: pseudoyu/pseudoyu.github.io
-#                   PUBLISH_BRANCH: master
-#                   PUBLISH_DIR: ./public
-#                   commit_message: ${{ github.event.head_commit.message }}
-
-name: GitHubPages
+name: Deploy my book
 
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master  # 只在master上push触发部署
+      - add_hugo
+    paths-ignore:   # 下列文件的变更不触发部署，可以自行添加
+      - README.md
+      - LICENSE
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          # hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
-          hugo-version: '0.74.2'
-          extended: true
-          
-      - name: Build
-        run: hugo --minify
+    runs-on: ubuntu-latest   # 使用ubuntu系统镜像运行自动化脚本
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: xxx/xxx.github.io
-          publish_branch: master
-          publish_dir: ./public
+    steps:  # 自动化步骤
+    - uses: actions/checkout@v2   # 第一步，下载代码仓库
+
+    - name: Setup Hugo  # 第二步，安装 hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.74.3'
+
+    - name: Build  # 第三步，编译 hugo
+      run: |
+        cd ./website
+        hugo -D --minify
+
+    - name: Deploy to Server  # 第四步，rsync推文件
+      uses: AEnterprise/rsync-deploy@v1.0  # 使用别人包装好的步骤镜像
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}   # 引用配置，SSH私钥
+        ARGS: -avz --delete --exclude='*.pyc'   # rsync参数，排除.pyc文件
+        SERVER_PORT: '22'  # SSH端口
+        FOLDER: ./website/public/* #推送的文件夹，路径相对于代码仓库的根目录
+        SERVER_IP: ${{ secrets.SSH_HOST }}  # 引用配置，服务器的host名（IP或者域名domain.com）
+        USERNAME: ${{ secrets.SSH_USERNAME }}  # 引用配置，服务器登录名
+        SERVER_DESTINATION: /var/www/books/leetcode/   # 部署到目标文件夹
