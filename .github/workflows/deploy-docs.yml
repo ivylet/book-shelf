@@ -23,7 +23,7 @@ jobs:
 
     - name: Build  # 第三步，编译 hugo
       run: |
-        cd ./website
+        cd ./website 
         hugo -D --minify
 
     - name: Deploy to Server  # 第四步，rsync推文件
