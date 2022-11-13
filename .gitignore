@@ -1,3 +1,4 @@
 node_modules
 ./vscode
 deploy-book-gh.sh
+package.json
