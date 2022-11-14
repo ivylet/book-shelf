@@ -24,7 +24,7 @@ jobs:
     - name: Build  # 第三步，编译 hugo
       run: |
         cd ./website 
-        hugo -D --minify
+        hugo -D --minify 
 
     #  - name: Install SSH Key
     #     uses: shimataro/ssh-key-action@v2
