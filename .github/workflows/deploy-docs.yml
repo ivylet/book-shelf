@@ -36,7 +36,7 @@
 #           REMOTE_HOST: www.a1pyd.top
 #           REMOTE_USER: root
 #           TARGET: /www/wwwroot/books/leetcode/
-name: Deploy《LeetCode-Cookbook》
+name: Deploy my book
 
 on:
   push:
