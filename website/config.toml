@@ -2,7 +2,7 @@
 baseURL = "http://www.a1pyd.top"
 # baseURL = 'https://www.baidu.com'
 title = 'Hugo Book'
-theme = 'hugo-book'
+theme = 'book'
 
 # Book configuration
 disablePathToLower = true
