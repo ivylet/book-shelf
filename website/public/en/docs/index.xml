@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Hugo Book</title>
+    <link>http://www.a1pyd.top/en/docs/</link>
+    <description>Recent content in Docs on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 09 Nov 2022 10:51:36 +0800</lastBuildDate><atom:link href="http://www.a1pyd.top/en/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Myfirst</title>
+      <link>http://www.a1pyd.top/en/docs/myfirst/</link>
+      <pubDate>Wed, 09 Nov 2022 10:51:36 +0800</pubDate>
+      
+      <guid>http://www.a1pyd.top/en/docs/myfirst/</guid>
+      <description>Hello World</description>
+    </item>
+    
+  </channel>
+</rss>

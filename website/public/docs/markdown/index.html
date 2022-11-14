@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。
+你应该创建和编写 Markdown 文件，以便 VuePress 可以根据文件结构将它们转换为不同的页面。
+Markdown 介绍#如果你是一个新手，还不会编写 Markdown，请先阅读 Markdown 介绍 和 Markdown 演示。
+Markdown 配置#VuePress 通过 Frontmatter 为每个 Markdown 页面引入配置。
+::: info
+Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 Frontmatter 介绍。
+:::
+Markdown 扩展#VuePress 会使用 markdown-it 来解析 Markdown 内容，因此可以借助于 markdown-it 插件来实现 语法扩展 。
+VuePress 扩展#为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。
+关于这些扩展，请阅读 VuePress 中的 Markdown 扩展。
+主题扩展#通过 vuepress-plugin-md-enhance，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。
+:::: tip 一键启用">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Markdown 展示" />
+<meta property="og:description" content="VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。
+你应该创建和编写 Markdown 文件，以便 VuePress 可以根据文件结构将它们转换为不同的页面。
+Markdown 介绍#如果你是一个新手，还不会编写 Markdown，请先阅读 Markdown 介绍 和 Markdown 演示。
+Markdown 配置#VuePress 通过 Frontmatter 为每个 Markdown 页面引入配置。
+::: info
+Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 Frontmatter 介绍。
+:::
+Markdown 扩展#VuePress 会使用 markdown-it 来解析 Markdown 内容，因此可以借助于 markdown-it 插件来实现 语法扩展 。
+VuePress 扩展#为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。
+关于这些扩展，请阅读 VuePress 中的 Markdown 扩展。
+主题扩展#通过 vuepress-plugin-md-enhance，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。
+:::: tip 一键启用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.baidu.com/docs/markdown/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Markdown 展示 | Hugo Book</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/zh.search.min.9ac07e657ff145fa9da89077b34b90c11a5885c756faf5a8dd729dc28e617016.js" integrity="sha256-msB&#43;ZX/xRfqdqJB3s0uQwRpYhcdW&#43;vWo3XKdwo5hcBY=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Hugo Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        Chinese
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://www.baidu.com/en/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href=""  target="_blank" rel="noopener">
+        关于我
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/first-copy-2/" class="">First</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/first-copy/" class="">First</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/first/" class="">First</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/encrypt-copy-2/" class="">KOd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/encrypt-copy/" class="">KOd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/encrypt/" class="">KOd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/page-copy-2/" class="">页面配置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/page-copy/" class="">页面配置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/page/" class="">页面配置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/markdown-copy-2/" class="">Markdown 展示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/markdown-copy/" class="">Markdown 展示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/markdown/" class="active">Markdown 展示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/disable-copy-2/" class="">布局与功能禁用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/disable-copy/" class="">布局与功能禁用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/disable/" class="">布局与功能禁用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/help-copy-2/" class="">使用帮助</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/help-copy/" class="">使用帮助</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/help/" class="">使用帮助</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/README-copy-2/" class="">主要功能与配置演示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/README-copy/" class="">主要功能与配置演示</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/README/" class="">主要功能与配置演示</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/ivylet"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Markdown 展示</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#markdown-介绍">Markdown 介绍</a></li>
+        <li><a href="#markdown-配置">Markdown 配置</a></li>
+        <li><a href="#markdown-扩展">Markdown 扩展</a>
+          <ul>
+            <li><a href="#vuepress-扩展">VuePress 扩展</a></li>
+            <li><a href="#主题扩展">主题扩展</a></li>
+            <li><a href="#图片增强">图片增强</a></li>
+          </ul>
+        </li>
+        <li><a href="#幻灯片-1">幻灯片 1</a></li>
+        <li><a href="#幻灯片-2">幻灯片 2</a></li>
+        <li><a href="#幻灯片-31">幻灯片 3.1</a></li>
+        <li><a href="#幻灯片-32">幻灯片 3.2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。</p>
+<p>你应该创建和编写 Markdown 文件，以便 VuePress 可以根据文件结构将它们转换为不同的页面。</p>
+<!-- more -->
+<h2 id="markdown-介绍">
+  Markdown 介绍
+  <a class="anchor" href="#markdown-%e4%bb%8b%e7%bb%8d">#</a>
+</h2>
+<p>如果你是一个新手，还不会编写 Markdown，请先阅读 
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/">Markdown 介绍</a> 和 
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/demo.html">Markdown 演示</a>。</p>
+<h2 id="markdown-配置">
+  Markdown 配置
+  <a class="anchor" href="#markdown-%e9%85%8d%e7%bd%ae">#</a>
+</h2>
+<p>VuePress 通过 Frontmatter 为每个 Markdown 页面引入配置。</p>
+<p>::: info</p>
+<p>Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/page.html#front-matter">Frontmatter 介绍</a>。</p>
+<p>:::</p>
+<h2 id="markdown-扩展">
+  Markdown 扩展
+  <a class="anchor" href="#markdown-%e6%89%a9%e5%b1%95">#</a>
+</h2>
+<p>VuePress 会使用 
+  <a href="https://github.com/markdown-it/markdown-it">markdown-it</a> 来解析 Markdown 内容，因此可以借助于 markdown-it 插件来实现 
+  <a href="https://github.com/markdown-it/markdown-it#syntax-extensions">语法扩展</a> 。</p>
+<h3 id="vuepress-扩展">
+  VuePress 扩展
+  <a class="anchor" href="#vuepress-%e6%89%a9%e5%b1%95">#</a>
+</h3>
+<p>为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。</p>
+<p>关于这些扩展，请阅读 
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/markdown.html">VuePress 中的 Markdown 扩展</a>。</p>
+<h3 id="主题扩展">
+  主题扩展
+  <a class="anchor" href="#%e4%b8%bb%e9%a2%98%e6%89%a9%e5%b1%95">#</a>
+</h3>
+<p>通过 
+  <a href="https://vuepress-theme-hope.github.io/v2/md-enhance/zh/"><code>vuepress-plugin-md-enhance</code></a>，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。</p>
+<p>:::: tip 一键启用</p>
+<p>你可以设置在主题选项中设置 <code>plugins.mdEnhance.enableAll: true</code> 启用 
+  <a href="https://vuepress-theme-hope.github.io/v2/md-enhance/zh/">md-enhance</a> 插件的所有功能。</p>
+<p>::: code-tabs#language</p>
+<p>@tab TS</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">hopeTheme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;vuepress-theme-hope&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">hopeTheme</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">mdEnhance</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">enableAll</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>@tab JS</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">hopeTheme</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuepress-theme-hope&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">hopeTheme</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">mdEnhance</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">enableAll</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>:::</p>
+<p>::::</p>
+<h4 id="自定义容器">
+  自定义容器
+  <a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ae%b9%e5%99%a8">#</a>
+</h4>
+<p>::: v-pre</p>
+<p>安全的在 Markdown 中使用 {{ variable }}。</p>
+<p>:::</p>
+<p>::: info 自定义标题</p>
+<p>信息容器，包含 <code>代码</code> 与 
+  <a href="/#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ae%b9%e5%99%a8">链接</a>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><p>:::</p>
+<p>::: tip 自定义标题</p>
+<p>提示容器</p>
+<p>:::</p>
+<p>::: warning 自定义标题</p>
+<p>警告容器</p>
+<p>:::</p>
+<p>::: danger 自定义标题</p>
+<p>危险容器</p>
+<p>:::</p>
+<p>::: details 自定义标题</p>
+<p>详情容器</p>
+<p>:::</p>
+<p>:::: details 代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>::: v-pre
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>安全的在 Markdown 中使用 {{ variable }}。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::: info 自定义标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>信息容器
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::: tip 自定义标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>提示容器
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::: warning 自定义标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>警告容器
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::: danger 自定义标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>危险容器
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::: details 自定义标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>详情容器
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:::
+</span></span></code></pre></div><p>::::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html">查看详情</a></li>
+</ul>
+<h4 id="代码块">
+  代码块
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e5%9d%97">#</a>
+</h4>
+<p>::: code-tabs</p>
+<p>@tab pnpm</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pnpm add -D vuepress-theme-hope
+</span></span></code></pre></div><p>@tab yarn</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add -D vuepress-theme-hope
+</span></span></code></pre></div><p>@tab:active npm</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm i -D vuepress-theme-hope
+</span></span></code></pre></div><p>:::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-tabs.html">查看详情</a></li>
+</ul>
+<h4 id="自定义对齐">
+  自定义对齐
+  <a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%af%b9%e9%bd%90">#</a>
+</h4>
+<p>::: center</p>
+<p>我是居中的</p>
+<p>:::</p>
+<p>::: right</p>
+<p>我在右对齐</p>
+<p>:::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html">查看详情</a></li>
+</ul>
+<h4 id="上下角标">
+  上下角标
+  <a class="anchor" href="#%e4%b8%8a%e4%b8%8b%e8%a7%92%e6%a0%87">#</a>
+</h4>
+<p>19^th^ H~2~O</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html">查看详情</a></li>
+</ul>
+<h4 id="脚注">
+  脚注
+  <a class="anchor" href="#%e8%84%9a%e6%b3%a8">#</a>
+</h4>
+<p>此文字有脚注<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html">查看详情</a></li>
+</ul>
+<h4 id="标记">
+  标记
+  <a class="anchor" href="#%e6%a0%87%e8%ae%b0">#</a>
+</h4>
+<p>你可以标记 ==重要的内容== 。</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html">查看详情</a></li>
+</ul>
+<h4 id="任务列表">
+  任务列表
+  <a class="anchor" href="#%e4%bb%bb%e5%8a%a1%e5%88%97%e8%a1%a8">#</a>
+</h4>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox"> 计划 1</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 计划 2</p>
+</li>
+<li>
+<p>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html">查看详情</a></p>
+</li>
+</ul>
+<h3 id="图片增强">
+  图片增强
+  <a class="anchor" href="#%e5%9b%be%e7%89%87%e5%a2%9e%e5%bc%ba">#</a>
+</h3>
+<p>支持为图片设置颜色模式和大小</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/image.html">查看详情</a></li>
+</ul>
+<h4 id="图表">
+  图表
+  <a class="anchor" href="#%e5%9b%be%e8%a1%a8">#</a>
+</h4>
+<p>::: chart 一个散点图案例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;scatter&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;datasets&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;散点数据集&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>          { <span style="color:#f92672">&#34;x&#34;</span>: <span style="color:#ae81ff">-10</span>, <span style="color:#f92672">&#34;y&#34;</span>: <span style="color:#ae81ff">0</span> },
+</span></span><span style="display:flex;"><span>          { <span style="color:#f92672">&#34;x&#34;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&#34;y&#34;</span>: <span style="color:#ae81ff">10</span> },
+</span></span><span style="display:flex;"><span>          { <span style="color:#f92672">&#34;x&#34;</span>: <span style="color:#ae81ff">10</span>, <span style="color:#f92672">&#34;y&#34;</span>: <span style="color:#ae81ff">5</span> },
+</span></span><span style="display:flex;"><span>          { <span style="color:#f92672">&#34;x&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#f92672">&#34;y&#34;</span>: <span style="color:#ae81ff">5.5</span> }
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;backgroundColor&#34;</span>: <span style="color:#e6db74">&#34;rgb(255, 99, 132)&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;options&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;scales&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;x&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;linear&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;position&#34;</span>: <span style="color:#e6db74">&#34;bottom&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>:::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/chart.html">查看详情</a></li>
+</ul>
+<h4 id="echarts">
+  Echarts
+  <a class="anchor" href="#echarts">#</a>
+</h4>
+<p>::: echarts 一个折线图案例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;xAxis&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;category&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;data&#34;</span>: [<span style="color:#e6db74">&#34;Mon&#34;</span>, <span style="color:#e6db74">&#34;Tue&#34;</span>, <span style="color:#e6db74">&#34;Wed&#34;</span>, <span style="color:#e6db74">&#34;Thu&#34;</span>, <span style="color:#e6db74">&#34;Fri&#34;</span>, <span style="color:#e6db74">&#34;Sat&#34;</span>, <span style="color:#e6db74">&#34;Sun&#34;</span>]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;yAxis&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;value&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;series&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;data&#34;</span>: [<span style="color:#ae81ff">150</span>, <span style="color:#ae81ff">230</span>, <span style="color:#ae81ff">224</span>, <span style="color:#ae81ff">218</span>, <span style="color:#ae81ff">135</span>, <span style="color:#ae81ff">147</span>, <span style="color:#ae81ff">260</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;line&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>:::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/echarts.html">查看详情</a></li>
+</ul>
+<h4 id="流程图">
+  流程图
+  <a class="anchor" href="#%e6%b5%81%e7%a8%8b%e5%9b%be">#</a>
+</h4>
+<pre tabindex="0"><code class="language-flow" data-lang="flow">cond=&gt;condition: 是否执行操作?
+process=&gt;operation: 操作
+e=&gt;end: 结束
+
+cond(yes)-&gt;process-&gt;e
+cond(no)-&gt;e
+</code></pre><ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html">查看详情</a></li>
+</ul>
+<h4 id="mermaid">
+  Mermaid
+  <a class="anchor" href="#mermaid">#</a>
+</h4>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end
+    one --&gt; two
+    three --&gt; two
+    two --&gt; c2
+</code></pre><ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html">查看详情</a></li>
+</ul>
+<h4 id="tex-语法">
+  Tex 语法
+  <a class="anchor" href="#tex-%e8%af%ad%e6%b3%95">#</a>
+</h4>
+<p>$$
+\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
+= \left(\frac {y^{\omega}} {\omega}\right) \left{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right}
+$$</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html">查看详情</a></li>
+</ul>
+<h4 id="导入文件">
+  导入文件
+  <a class="anchor" href="#%e5%af%bc%e5%85%a5%e6%96%87%e4%bb%b6">#</a>
+</h4>
+<p>@include(./README.md{11-17})</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/include.html">查看详情</a></li>
+</ul>
+<h4 id="代码演示">
+  代码演示
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e6%bc%94%e7%a4%ba">#</a>
+</h4>
+<p>::: normal-demo 一个普通 Demo</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span>&gt;VuePress Theme Hope&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;very&#34;</span>&gt;非常&lt;/<span style="color:#f92672">span</span>&gt;强大!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#very&#34;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;非常强大&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">span</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>:::</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html">查看详情</a></li>
+</ul>
+<h4 id="样式化">
+  样式化
+  <a class="anchor" href="#%e6%a0%b7%e5%bc%8f%e5%8c%96">#</a>
+</h4>
+<!-- markdownlint-disable MD033 -->
+<p>设置它<span style="color:red">没有</span>任何效果，请<span style="color:red">不要</span>这样使用</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/stylize.html">查看详情</a></li>
+</ul>
+<!-- markdownlint-enable MD033 -->
+<h4 id="幻灯片">
+  幻灯片
+  <a class="anchor" href="#%e5%b9%bb%e7%81%af%e7%89%87">#</a>
+</h4>
+<p>@slidestart</p>
+<h2 id="幻灯片-1">
+  幻灯片 1
+  <a class="anchor" href="#%e5%b9%bb%e7%81%af%e7%89%87-1">#</a>
+</h2>
+<p>一个有文字和 
+  <a href="https://mrhope.site">链接</a> 的段落</p>
+<hr>
+<h2 id="幻灯片-2">
+  幻灯片 2
+  <a class="anchor" href="#%e5%b9%bb%e7%81%af%e7%89%87-2">#</a>
+</h2>
+<ul>
+<li>项目 1</li>
+<li>项目 2</li>
+</ul>
+<hr>
+<h2 id="幻灯片-31">
+  幻灯片 3.1
+  <a class="anchor" href="#%e5%b9%bb%e7%81%af%e7%89%87-31">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><p>&ndash;</p>
+<h2 id="幻灯片-32">
+  幻灯片 3.2
+  <a class="anchor" href="#%e5%b9%bb%e7%81%af%e7%89%87-32">#</a>
+</h2>
+<p>$$
+J(\theta_0,\theta_1) = \sum_{i=0}
+$$</p>
+<p>@slideend</p>
+<ul>
+<li>
+  <a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html">查看详情</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这是脚注内容&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/ivylet/edit/main/exampleSite/content/docs/markdown.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>编辑本页</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#markdown-介绍">Markdown 介绍</a></li>
+        <li><a href="#markdown-配置">Markdown 配置</a></li>
+        <li><a href="#markdown-扩展">Markdown 扩展</a>
+          <ul>
+            <li><a href="#vuepress-扩展">VuePress 扩展</a></li>
+            <li><a href="#主题扩展">主题扩展</a></li>
+            <li><a href="#图片增强">图片增强</a></li>
+          </ul>
+        </li>
+        <li><a href="#幻灯片-1">幻灯片 1</a></li>
+        <li><a href="#幻灯片-2">幻灯片 2</a></li>
+        <li><a href="#幻灯片-31">幻灯片 3.1</a></li>
+        <li><a href="#幻灯片-32">幻灯片 3.2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

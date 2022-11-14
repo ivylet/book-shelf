@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="给你一个由不同字符组成的字符串&nbsp;allowed&nbsp;和一个字符串数组&nbsp;words&nbsp;。如果一个字符串的每一个字符都在 allowed&nbsp;中，就称这个字符串是 一致字符串 。
+请你返回&nbsp;words&nbsp;数组中&nbsp;一致字符串 的数目。
+&nbsp;
+示例 1：
+输入：allowed = &#34;ab&#34;, words = [&#34;ad&#34;,&#34;bd&#34;,&#34;aaab&#34;,&#34;baa&#34;,&#34;badab&#34;] 输出：2 解释：字符串 &#34;aaab&#34; 和 &#34;baa&#34; 都是一致字符串，因为它们只包含字符 &#39;a&#39; 和 &#39;b&#39; 。 示例 2：
+输入：allowed = &#34;abc&#34;, words = [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;ab&#34;,&#34;ac&#34;,&#34;bc&#34;,&#34;abc&#34;] 输出：7 解释：所有字符串都是一致的。 示例 3：
+输入：allowed = &#34;cad&#34;, words = [&#34;cc&#34;,&#34;acd&#34;,&#34;b&#34;,&#34;ba&#34;,&#34;bac&#34;,&#34;bad&#34;,&#34;ac&#34;,&#34;d&#34;] 输出：4 解释：字符串 &#34;cc&#34;，&#34;acd&#34;，&#34;ac&#34; 和 &#34;d&#34; 是一致字符串。 &nbsp;
+提示：
+1 &lt;= words.length &lt;= 104 1 &lt;= allowed.length &lt;= 26 1 &lt;= words[i].length &lt;= 10 allowed&nbsp;中的字符 互不相同&nbsp;。 words[i] 和&nbsp;allowed&nbsp;只包含小写英文字母。 Related Topics位运算数组哈希表字符串">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="1684. 统计一致字符串的数目" />
+<meta property="og:description" content="给你一个由不同字符组成的字符串&nbsp;allowed&nbsp;和一个字符串数组&nbsp;words&nbsp;。如果一个字符串的每一个字符都在 allowed&nbsp;中，就称这个字符串是 一致字符串 。
+请你返回&nbsp;words&nbsp;数组中&nbsp;一致字符串 的数目。
+&nbsp;
+示例 1：
+输入：allowed = &#34;ab&#34;, words = [&#34;ad&#34;,&#34;bd&#34;,&#34;aaab&#34;,&#34;baa&#34;,&#34;badab&#34;] 输出：2 解释：字符串 &#34;aaab&#34; 和 &#34;baa&#34; 都是一致字符串，因为它们只包含字符 &#39;a&#39; 和 &#39;b&#39; 。 示例 2：
+输入：allowed = &#34;abc&#34;, words = [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;ab&#34;,&#34;ac&#34;,&#34;bc&#34;,&#34;abc&#34;] 输出：7 解释：所有字符串都是一致的。 示例 3：
+输入：allowed = &#34;cad&#34;, words = [&#34;cc&#34;,&#34;acd&#34;,&#34;b&#34;,&#34;ba&#34;,&#34;bac&#34;,&#34;bad&#34;,&#34;ac&#34;,&#34;d&#34;] 输出：4 解释：字符串 &#34;cc&#34;，&#34;acd&#34;，&#34;ac&#34; 和 &#34;d&#34; 是一致字符串。 &nbsp;
+提示：
+1 &lt;= words.length &lt;= 104 1 &lt;= allowed.length &lt;= 26 1 &lt;= words[i].length &lt;= 10 allowed&nbsp;中的字符 互不相同&nbsp;。 words[i] 和&nbsp;allowed&nbsp;只包含小写英文字母。 Related Topics位运算数组哈希表字符串" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-11-10T11:11:57+08:00" />
+<meta property="article:modified_time" content="2022-11-10T11:11:57+08:00" />
+
+<title>1684. 统计一致字符串的数目 | Hugo Book</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/zh.search.min.4afb1608dda51beea5ecfb586147dd5a8eabb4f6a639ed1b812138815ba2ed37.js" integrity="sha256-SvsWCN2lG&#43;6l7PtYYUfdWo6rtPamOe0bgSE4gVui7Tc=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Hugo Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        Chinese
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="http://www.a1pyd.top/en/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href=""  target="_blank" rel="noopener">
+        关于我
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cpp-stl-argo/" class="">STL中常用算法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/datastru/" class="">常用算法储备知识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cpp-stl-intro/" class="">C&#43;&#43; STL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/" class="active">1684. 统计一致字符串的数目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/ivylet"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>1684. 统计一致字符串的数目</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#解题">解题</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>给你一个由不同字符组成的字符串&nbsp;<code>allowed</code>&nbsp;和一个字符串数组&nbsp;<code>words</code>&nbsp;。如果一个字符串的每一个字符都在 <code>allowed</code>&nbsp;中，就称这个字符串是 <strong>一致字符串 </strong>。</p>
+<p>请你返回&nbsp;<code>words</code>&nbsp;数组中&nbsp;<strong>一致字符串</strong> 的数目。</p>
+<p>&nbsp;</p>
+<p><strong>示例 1：</strong></p>
+<pre>
+<b>输入：</b>allowed = "ab", words = ["ad","bd","aaab","baa","badab"]
+<b>输出：</b>2
+<b>解释：</b>字符串 "aaab" 和 "baa" 都是一致字符串，因为它们只包含字符 'a' 和 'b' 。
+</pre>
+<p><strong>示例 2：</strong></p>
+<pre>
+<b>输入：</b>allowed = "abc", words = ["a","b","c","ab","ac","bc","abc"]
+<b>输出：</b>7
+<b>解释：</b>所有字符串都是一致的。
+</pre>
+<p><strong>示例 3：</strong></p>
+<pre>
+<b>输入：</b>allowed = "cad", words = ["cc","acd","b","ba","bac","bad","ac","d"]
+<b>输出：</b>4
+<b>解释：</b>字符串 "cc"，"acd"，"ac" 和 "d" 是一致字符串。
+</pre>
+<p>&nbsp;</p>
+<p><strong>提示：</strong></p>
+<ul> 
+ <li><code>1 &lt;= words.length &lt;= 10<sup>4</sup></code></li> 
+ <li><code>1 &lt;= allowed.length &lt;=<sup> </sup>26</code></li> 
+ <li><code>1 &lt;= words[i].length &lt;= 10</code></li> 
+ <li><code>allowed</code>&nbsp;中的字符 <strong>互不相同</strong>&nbsp;。</li> 
+ <li><code>words[i]</code> 和&nbsp;<code>allowed</code>&nbsp;只包含小写英文字母。</li> 
+</ul>
+<div><div>Related Topics</div><div><li>位运算</li><li>数组</li><li>哈希表</li><li>字符串</li></div></div><br><div><li>👍 107</li><li>👎 0</li></div>
+<h3 id="解题">
+  解题
+  <a class="anchor" href="#%e8%a7%a3%e9%a2%98">#</a>
+</h3>
+<h4 id="我的解法-暴力解">
+  我的解法-暴力解
+  <a class="anchor" href="#%e6%88%91%e7%9a%84%e8%a7%a3%e6%b3%95-%e6%9a%b4%e5%8a%9b%e8%a7%a3">#</a>
+</h4>
+<p>先来暴力解法，采用了set集合中元素不相同的结构。定义一个set集合allo，将allowed中的元素放入，再遍历words中每一项的字符串中的字符是否在allo中，如果有则不符合条件 。</p>
+<p>set插入还是很慢的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> countConsistentStrings(string allowed, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;&amp;</span> words) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        set<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> allo;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> allowed.length(); <span style="color:#f92672">++</span>i){allo.insert(allowed.c_str()[i]);}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> words.size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> words[i].length(); <span style="color:#f92672">++</span>j)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (allo.count(words[i].c_str()[j]) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){count<span style="color:#f92672">++</span>;}
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>{flag<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;}
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="官解-位运算">
+  官解-位运算
+  <a class="anchor" href="#%e5%ae%98%e8%a7%a3-%e4%bd%8d%e8%bf%90%e7%ae%97">#</a>
+</h4>
+<p>题目条件是<code>allowed</code>是只有26位并且全为小写且不重复，可以使用26位二进制数<code>mask</code>进行表示哪些字母出现。int类型一般而言为32位。我们可以遍历<code>words</code>中每一个字符串，然后对其进行相同的运算，如果运算后的数<code>mask1</code>和<code>mask</code>相同，那么就可以让结果<code>count</code>加1。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> countConsistentStrings(string allowed, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;&amp;</span> words) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c : allowed) {
+</span></span><span style="display:flex;"><span>            mask <span style="color:#f92672">|=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> (c <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;a&#39;</span>);<span style="color:#75715e">//或运算，二进制位有1就为1，两个1就还是1.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;&amp;</span>word : words) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> mask1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c : word) {
+</span></span><span style="display:flex;"><span>                mask1 <span style="color:#f92672">|=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> (c <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;a&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ((mask1 <span style="color:#f92672">|</span> mask) <span style="color:#f92672">==</span> mask) {<span style="color:#75715e">//如果有不同的位置上有1，那么这个就不成立。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                res<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/ivylet/edit/main/exampleSite/content/docs/leetcode/1684-CountTheNumberOfConsistentStrings%20.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>编辑本页</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#解题">解题</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

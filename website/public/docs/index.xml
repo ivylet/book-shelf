@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Hugo Book</title>
+    <link>http://www.a1pyd.top/docs/</link>
+    <description>Recent content in Docs on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 10 Nov 2022 11:18:29 +0800</lastBuildDate><atom:link href="http://www.a1pyd.top/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STL中常用算法</title>
+      <link>http://www.a1pyd.top/docs/cpp-stl-argo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.a1pyd.top/docs/cpp-stl-argo/</guid>
+      <description>STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
+遍历#for_each 查找#count_if#函数原型为count_if(v.begin(),v.end(),comp)
+v.begin()为开始，v.end()为结束，comp为自定义判断函数。
+举个例子：
+排序#复制与拷贝#算术生成#集合算法#</description>
+    </item>
+    
+    <item>
+      <title>常用算法储备知识</title>
+      <link>http://www.a1pyd.top/docs/datastru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.a1pyd.top/docs/datastru/</guid>
+      <description>位运算#位运算有（&amp;amp;、|、^、~、&amp;raquo;、&amp;laquo;）这几种方法，以下为正且位数相同的二进制数进行的位运算，但是还会有其他特殊情况，比如二进制数非正，位数不同的情况。
+符号 描述 运算规则 &amp;amp; 与 两个位都为1时，结果才为1 | 或 两个位都为0时，结果才为0 ^ 异或 两个位相同为0，相异为1 ~ 取反 0变1，1变0 &amp;laquo; 左移 各二进位全部左移若干位，高位丢弃，低位补0 &amp;raquo; 右移 各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不同 按位与运算符（&amp;amp;）#定义：参加运算的两个数据，按二进制位进行&amp;quot;与&amp;quot;运算。
+运算规则：同时为1才为1，
+0&amp;amp;0=0 0&amp;amp;1=0 1&amp;amp;0=0 1&amp;amp;1=1 //两位同时为1，结果才为1，否则结果为0。 例如：5&amp;amp;7 即 0000 0101&amp;amp; 0000 0111 = 0000 0101，因此 5&amp;amp;7 的值为5。
+注意：负数按补码形式参加按位与运算。
+与运算的用途：
+清零 如果想将一个单元清零，即使其全部二进制位为0，只要与一个各位都为零的数值相与，结果为零。 取一个数的指定位 比如取数 X=1011 1001 的低4位，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位与运算（X&amp;amp;Y=0000 1001）即可得到X的指定位。 判断奇偶 二进制的奇偶数只需要根据最未位是0还是1来决定，为0就是偶数，为1就是奇数。因此可以用if ((a &amp;amp; 1) == 0)代替if (a % 2 == 0)来判断a是不是偶数。 按位或运算符（|）#定义：参加运算的两个对象，按二进制位进行&amp;quot;或&amp;quot;运算。</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; STL</title>
+      <link>http://www.a1pyd.top/docs/cpp-stl-intro/</link>
+      <pubDate>Thu, 10 Nov 2022 11:18:29 +0800</pubDate>
+      
+      <guid>http://www.a1pyd.top/docs/cpp-stl-intro/</guid>
+      <description>什么是C++标准模板库（STL）？#标准模板库 STL（Standard Template Library），是 C++ 标准库的一部分，不需要单独安装，只需要#include 头文件。
+C++ 对模板（Template）支持得很好，STL 就是借助模板把常用的数据结构及其算法都实现了一遍，并且做到了数据结构和算法的分离。
+C++ 语言的核心优势之一就是便于软件的复用。
+C++ 语言有两个方面体现了复用：
+面向对象的继承和多态机制 通过模板的概念实现了对泛型程序设计的支持 C++中的模板，就好比英语作文的模板，只换主题，不换句式和结构。对应到C++模板，就是只换类型，不换方法。
+STL有什么优势？#STL封装了很多实用的容器，省时省力，能够让你将更多心思放到解决问题的步骤上，而非费力去实现数据结构诸多细节上，像极了用python时候的酣畅淋漓。
+STL到底有什么？#六大部件:
+容器 分配器 算法 迭代器 适配器 仿函数 自定义#vector 矢量#vector是一种变长数组，即可以自动改变长度的数组。
+定义#使用前需添加头文件
+#include&amp;lt;vector&amp;gt; using namespace std; 像定义变量一样定义vector变量：
+vector&amp;lt;类型名&amp;gt; 变量名; 类型名可以是int、double、char、struct，也可以是STL容器：vector、set、queue。
+vector&amp;lt;int&amp;gt; name; vector&amp;lt;double&amp;gt; name; vector&amp;lt;char&amp;gt; name; vector&amp;lt;struct node&amp;gt; name; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; name; vector数组就是一个一维数组,如果定义成vector数组的数组，那就是二维数组**。**
+vector&amp;lt;int&amp;gt; array[SZIE]; //二维变长数组 在此，我送你一句话非常受用的话：低维是高维的地址。
+二维数组中，它的一维形式就是地址。例如：
+#include &amp;lt;iostream&amp;gt; using namespace std; int main(){ int arr[3][2];//定义一个3行2列的地址 cout&amp;lt;&amp;lt;arr[0]&amp;lt;&amp;lt;endl; //输出arr第1行的地址 cout&amp;lt;&amp;lt;arr[1]&amp;lt;&amp;lt;endl; //输出arr第2行的地址 cout&amp;lt;&amp;lt;arr[2]&amp;lt;&amp;lt;endl; //输出arr第3行的地址 return 0; } 输出：</description>
+    </item>
+    
+    <item>
+      <title>1684. 统计一致字符串的数目</title>
+      <link>http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/</link>
+      <pubDate>Thu, 10 Nov 2022 11:11:57 +0800</pubDate>
+      
+      <guid>http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/</guid>
+      <description>给你一个由不同字符组成的字符串&amp;nbsp;allowed&amp;nbsp;和一个字符串数组&amp;nbsp;words&amp;nbsp;。如果一个字符串的每一个字符都在 allowed&amp;nbsp;中，就称这个字符串是 一致字符串 。
+请你返回&amp;nbsp;words&amp;nbsp;数组中&amp;nbsp;一致字符串 的数目。
+&amp;nbsp;
+示例 1：
+输入：allowed = &#34;ab&#34;, words = [&#34;ad&#34;,&#34;bd&#34;,&#34;aaab&#34;,&#34;baa&#34;,&#34;badab&#34;] 输出：2 解释：字符串 &#34;aaab&#34; 和 &#34;baa&#34; 都是一致字符串，因为它们只包含字符 &#39;a&#39; 和 &#39;b&#39; 。 示例 2：
+输入：allowed = &#34;abc&#34;, words = [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;ab&#34;,&#34;ac&#34;,&#34;bc&#34;,&#34;abc&#34;] 输出：7 解释：所有字符串都是一致的。 示例 3：
+输入：allowed = &#34;cad&#34;, words = [&#34;cc&#34;,&#34;acd&#34;,&#34;b&#34;,&#34;ba&#34;,&#34;bac&#34;,&#34;bad&#34;,&#34;ac&#34;,&#34;d&#34;] 输出：4 解释：字符串 &#34;cc&#34;，&#34;acd&#34;，&#34;ac&#34; 和 &#34;d&#34; 是一致字符串。 &amp;nbsp;
+提示：
+1 &amp;lt;= words.length &amp;lt;= 104 1 &amp;lt;= allowed.length &amp;lt;= 26 1 &amp;lt;= words[i].length &amp;lt;= 10 allowed&amp;nbsp;中的字符 互不相同&amp;nbsp;。 words[i] 和&amp;nbsp;allowed&amp;nbsp;只包含小写英文字母。 Related Topics位运算数组哈希表字符串</description>
+    </item>
+    
+  </channel>
+</rss>
