@@ -32,7 +32,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }} #远程服务器的登录名
         server: ${{ secrets.SSH_HOST }} #远程服务器的ip地址
         port: "22" #远程服务器的端口
-        ssh_private_key: ${{ secrets.secrets.DEPLOY_KEY }} #远程服务器的私钥
+        ssh_private_key: ${{ secrets.DEPLOY_KEY }} #远程服务器的私钥
         # 要上传文件所在目录
         local_path: "./website/public/*"
         # 远程服务器目标路径
