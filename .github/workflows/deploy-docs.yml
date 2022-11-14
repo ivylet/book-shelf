@@ -16,16 +16,16 @@ jobs:
     steps:  # 自动化步骤
     - uses: actions/checkout@v2   # 第一步，下载代码仓库
 
-    # - name: Setup Hugo  # 第二步，安装 hugo
-    #   uses: peaceiris/actions-hugo@v2
-    #   with:
-    #     hugo-version: '0.74.3'  
-    #     extended: true
+    - name: Setup Hugo  # 第二步，安装 hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.74.3'  
+        extended: true
 
-    # - name: Build  # 第三步，编译 hugo
-    #   run: |
-    #     cd ./website 
-    #     hugo -D --minify  
+    - name: Build  # 第三步，编译 hugo
+      run: |
+        cd ./website 
+        hugo -D --minify  
 
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
