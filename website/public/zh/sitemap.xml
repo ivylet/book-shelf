@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.a1pyd.top/docs/cpp-stl-argo/</loc>
+    <loc>http://www.a1pyd.top/docs/chapter01/cpp-stl-argo/</loc>
   </url><url>
-    <loc>http://www.a1pyd.top/docs/datastru/</loc>
+    <loc>http://www.a1pyd.top/docs/chapter01/datastru/</loc>
   </url><url>
-    <loc>http://www.a1pyd.top/docs/cpp-stl-intro/</loc>
+    <loc>http://www.a1pyd.top/docs/chapter01/cpp-stl-intro/</loc>
     <lastmod>2022-11-10T11:18:29+08:00</lastmod>
   </url><url>
     <loc>http://www.a1pyd.top/docs/</loc>
@@ -35,7 +35,13 @@
                 href="http://www.a1pyd.top/"
                 />
   </url><url>
+    <loc>http://www.a1pyd.top/docs/chapter01/</loc>
+    <lastmod>2022-11-10T11:18:29+08:00</lastmod>
+  </url><url>
     <loc>http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/</loc>
+    <lastmod>2022-11-10T11:11:57+08:00</lastmod>
+  </url><url>
+    <loc>http://www.a1pyd.top/docs/leetcode/</loc>
     <lastmod>2022-11-10T11:11:57+08:00</lastmod>
   </url><url>
     <loc>http://www.a1pyd.top/en/</loc>

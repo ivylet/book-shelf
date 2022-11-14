@@ -1,1 +1,0 @@
-<% Object.values(app.plugins.manifests).map(p=>p.id).sort((a,b)=>a.localeCompare(b)).join('\n') %>

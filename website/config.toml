@@ -4,11 +4,15 @@ baseURL = "http://www.a1pyd.top"
 title = 'Hugo Book'
 theme = 'book'
 
+
 # Book configuration
 disablePathToLower = true
 # enableGitInfo = true
 defaultContentLanguage='zh'
 # Needed for mermaid/katex shortcodes
+
+[Author]
+name = 'ivylet'
 [markup]
 [markup.goldmark.renderer]
   unsafe = true
@@ -34,12 +38,11 @@ defaultContentLanguage='zh'
   weight = 2
 
 [menu]
-[[menu.before]]
-  name = "关于我"
+# [[menu.before]]
+#   name = "关于我"
 [[menu.after]]
   name = "Github"
   url = "https://github.com/ivylet"
-  i18n = "d"
   weight = 10
 
 [[menu.after]]
@@ -47,10 +50,14 @@ defaultContentLanguage='zh'
   url = "https://themes.gohugo.io/hugo-book/"
   weight = 20
 
+
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
   BookTheme = 'light'
+
+  beian = '豫ICP备2021036976号-2'
+  showHostPage = true
 
   # (Optional, default true) Controls table of contents visibility on right side of pages.
   # Start and end levels can be controlled with markup.tableOfContents setting.
@@ -72,6 +79,10 @@ defaultContentLanguage='zh'
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
+
+
+
+
   BookRepo = 'https://github.com/ivylet'
 
   # (Optional, default 'commit') Specifies commit portion of the link to the page's last modified

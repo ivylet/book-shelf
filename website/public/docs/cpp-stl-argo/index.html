@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
+<meta name="description" content="页脚导航菜单 {{ range .Site.Menus.foot }} {{.Name}} {{ end }} STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
 遍历#for_each 查找#count_if#函数原型为count_if(v.begin(),v.end(),comp)
 v.begin()为开始，v.end()为结束，comp为自定义判断函数。
 举个例子：
 排序#复制与拷贝#算术生成#集合算法#">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="STL中常用算法" />
-<meta property="og:description" content="STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
+<meta property="og:description" content="页脚导航菜单 {{ range .Site.Menus.foot }} {{.Name}} {{ end }} STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
 遍历#for_each 查找#count_if#函数原型为count_if(v.begin(),v.end(),comp)
 v.begin()为开始，v.end()为结束，comp为自定义判断函数。
 举个例子：
@@ -25,7 +25,7 @@ v.begin()为开始，v.end()为结束，comp为自定义判断函数。
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/zh.search.min.4afb1608dda51beea5ecfb586147dd5a8eabb4f6a639ed1b812138815ba2ed37.js" integrity="sha256-SvsWCN2lG&#43;6l7PtYYUfdWo6rtPamOe0bgSE4gVui7Tc=" crossorigin="anonymous"></script>
+  <script defer src="/zh.search.min.94296f8093a4af41066e4b264ca5b89ba960bbe251514a0b30b38f0f361637ff.js" integrity="sha256-lClvgJOkr0EGbksmTKW4m6lgu&#43;JRUUoLMLOPDzYWN/8=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -91,18 +91,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-
-  
-<ul>
-  
-  <li>
-    <a href=""  target="_blank" rel="noopener">
-        关于我
-      </a>
-  </li>
-  
-</ul>
 
 
 
@@ -265,7 +253,13 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><p>STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。</p>
+  <article class="markdown"><h2>页脚导航菜单</h2>
+<ul>
+  {{ range .Site.Menus.foot }}
+  <li><a href="{{.URL}}">{{.Name}}</a></li>
+  {{ end }}
+</ul>
+<p>STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。</p>
 <h3 id="遍历">
   遍历
   <a class="anchor" href="#%e9%81%8d%e5%8e%86">#</a>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sda on Hugo Book</title>
+    <link>http://www.a1pyd.top/docs/leetcode/</link>
+    <description>Recent content in sda on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 10 Nov 2022 11:11:57 +0800</lastBuildDate><atom:link href="http://www.a1pyd.top/docs/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1684. 统计一致字符串的数目</title>
+      <link>http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/</link>
+      <pubDate>Thu, 10 Nov 2022 11:11:57 +0800</pubDate>
+      
+      <guid>http://www.a1pyd.top/docs/leetcode/1684-CountTheNumberOfConsistentStrings-/</guid>
+      <description>给你一个由不同字符组成的字符串&amp;nbsp;allowed&amp;nbsp;和一个字符串数组&amp;nbsp;words&amp;nbsp;。如果一个字符串的每一个字符都在 allowed&amp;nbsp;中，就称这个字符串是 一致字符串 。
+请你返回&amp;nbsp;words&amp;nbsp;数组中&amp;nbsp;一致字符串 的数目。
+&amp;nbsp;
+示例 1：
+输入：allowed = &#34;ab&#34;, words = [&#34;ad&#34;,&#34;bd&#34;,&#34;aaab&#34;,&#34;baa&#34;,&#34;badab&#34;] 输出：2 解释：字符串 &#34;aaab&#34; 和 &#34;baa&#34; 都是一致字符串，因为它们只包含字符 &#39;a&#39; 和 &#39;b&#39; 。 示例 2：
+输入：allowed = &#34;abc&#34;, words = [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;,&#34;ab&#34;,&#34;ac&#34;,&#34;bc&#34;,&#34;abc&#34;] 输出：7 解释：所有字符串都是一致的。 示例 3：
+输入：allowed = &#34;cad&#34;, words = [&#34;cc&#34;,&#34;acd&#34;,&#34;b&#34;,&#34;ba&#34;,&#34;bac&#34;,&#34;bad&#34;,&#34;ac&#34;,&#34;d&#34;] 输出：4 解释：字符串 &#34;cc&#34;，&#34;acd&#34;，&#34;ac&#34; 和 &#34;d&#34; 是一致字符串。 &amp;nbsp;
+提示：
+1 &amp;lt;= words.length &amp;lt;= 104 1 &amp;lt;= allowed.length &amp;lt;= 26 1 &amp;lt;= words[i].length &amp;lt;= 10 allowed&amp;nbsp;中的字符 互不相同&amp;nbsp;。 words[i] 和&amp;nbsp;allowed&amp;nbsp;只包含小写英文字母。 Related Topics位运算数组哈希表字符串</description>
+    </item>
+    
+  </channel>
+</rss>

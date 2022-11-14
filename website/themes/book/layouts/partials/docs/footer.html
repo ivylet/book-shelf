@@ -19,6 +19,15 @@
     </a>
   </div>
 {{ end }}
+<footer id="footer">
+  <div class="container">
+      &copy; {{ now.Format "2006" }}, By {{ .Site.Author.name }}</a>。
+      {{ if .Site.Params.beian}}
+      备案号：<a href="https://beian.miit.gov.cn/" target="_blank">{{.Site.Params.beian}}</a>
+      {{ end }}
+  </div>
+</footer>
+
 
 </div>
 
