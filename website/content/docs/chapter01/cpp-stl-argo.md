@@ -2,12 +2,6 @@
 title: STL中常用算法
 weight: 1
 ---
-<h2>页脚导航菜单</h2>
-<ul>
-  {{ range .Site.Menus.foot }}
-  <li><a href="{{.URL}}">{{.Name}}</a></li>
-  {{ end }}
-</ul>
 
 STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
 
