@@ -3,6 +3,8 @@ title: 26. 删除排序数组中的重复项
 date: 2022-11-15T16:10:48+08:00
 ---
 
+## 题目
+
 <p>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你<strong><a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank"> 原地</a></strong> 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 <strong>一致</strong> 。</p>
 
 
@@ -15,6 +17,8 @@ date: 2022-11-15T16:10:48+08:00
 <p><strong>判题标准:</strong></p>
 
 <p>系统会用下面的代码来测试你的题解:</p>
+
+
 
 <pre>int[] nums = [...]; // 输入数组
 int[] expectedNums = [...]; // 长度正确的期望答案int k = removeDuplicates(nums); // 调用
@@ -50,13 +54,13 @@ for (int i = 0; i &lt; k; i++) {
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 已按 <strong>升序</strong> 排列</li>
 </ul>
-### 分析
+## 分析
 
 直接的方法就是从头到尾进行遍历，有相同的两项就进行操作，主要是看如何操作。
 
-### 解题
+## 解题
 
-#### 我的解法
+### 我的解法
 
 ```c++
 class Solution {
@@ -88,7 +92,7 @@ public:
 
 然后看起来挺长的，感觉挺靠谱 但实际上时空上开销相比来说很大。主要原因应该是没有好好利用题目所给的，只要求数组的前` k` 项需要符合题意即可。所以我所使用的`erase`函数很占时间，并且使用了四个变量开辟空间。不太行。
 
-官方解法
+### 官方解法
 
 ```c++
 class Solution {

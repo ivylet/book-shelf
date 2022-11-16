@@ -2,6 +2,8 @@
 title: 1684. 统计一致字符串的数目
 date: 2022-11-10T11:11:57+08:00
 ---
+## 题目
+
 <p>给你一个由不同字符组成的字符串&nbsp;<code>allowed</code>&nbsp;和一个字符串数组&nbsp;<code>words</code>&nbsp;。如果一个字符串的每一个字符都在 <code>allowed</code>&nbsp;中，就称这个字符串是 <strong>一致字符串 </strong>。</p>
 
 <p>请你返回&nbsp;<code>words</code>&nbsp;数组中&nbsp;<strong>一致字符串</strong> 的数目。</p>
@@ -36,6 +38,8 @@ date: 2022-11-10T11:11:57+08:00
 
 <p><strong>提示：</strong></p>
 
+
+
 <ul> 
  <li><code>1 &lt;= words.length &lt;= 10<sup>4</sup></code></li> 
  <li><code>1 &lt;= allowed.length &lt;=<sup> </sup>26</code></li> 
@@ -50,9 +54,9 @@ date: 2022-11-10T11:11:57+08:00
 
 
 
-### 解题
+## 解题
 
-#### 我的解法-暴力解
+### 我的解法-暴力解
 
 先来暴力解法，采用了set集合中元素不相同的结构。定义一个set集合allo，将allowed中的元素放入，再遍历words中每一项的字符串中的字符是否在allo中，如果有则不符合条件 。
 
@@ -85,7 +89,7 @@ public:
 };
 ```
 
-#### 官解-位运算
+### 官解-位运算
 
 题目条件是`allowed`是只有26位并且全为小写且不重复，可以使用26位二进制数`mask`进行表示哪些字母出现。int类型一般而言为32位。我们可以遍历`words`中每一个字符串，然后对其进行相同的运算，如果运算后的数`mask1`和`mask`相同，那么就可以让结果`count`加1。
 
