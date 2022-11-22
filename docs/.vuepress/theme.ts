@@ -3,6 +3,7 @@ import sidebar from "./sidebar";
 import navbar from "./navbar";
 
 export default hopeTheme({
+
   hostname: "https://ivylet.github.io",
   // fullscreen:true,
   author: {
@@ -47,6 +48,7 @@ export default hopeTheme({
       displayFooter: true,
 
   plugins: {
+    pwa: true,
     blog: {
       autoExcerpt: true,
       
