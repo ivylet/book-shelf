@@ -44,7 +44,7 @@ date: 2022-11-16T19:35:55+08:00
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 ## 分析
-
+题目中关键词
 
 
 ## 题解
@@ -74,10 +74,41 @@ public:
 #### 动态规划
 
 ```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int len = prices.size();
+        int dp[len][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for(int i = 1;i<len;++i)
+        {
+            dp[i][0] = dp[i - 1][1] + prices[i] > dp[i - 1][0]?dp[i - 1][1] + prices[i]:dp[i - 1][0];
+            dp[i][1] = dp[i - 1][1] > dp[i - 1][0] - prices[i]?dp[i - 1][1]:dp[i - 1][0] - prices[i];
+        }
+        return dp[len - 1][0];
+    }
+};
 ```
 
 每天的情况其实只和昨天有关，然后每天的情况其实就是手上有没有股票。然后可以建立dp[i]\[0]与dp[i]\[1]来表示第i天手上有没有股票，然后第二天根据今天的股票情况来计算手上有股票的最大值和手上没股票的最大值，最后一直推到最后一天手上没股票的最大值，就是最终结果。
-
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int len = prices.size();
+        int dp[2][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for(int i = 1;i<len;++i)
+        {
+            dp[i%2][0] = dp[(i - 1)%2][1] + prices[i] > dp[(i - 1)%2][0]?dp[(i - 1)%2][1] + prices[i]:dp[(i - 1)%2][0];
+            dp[i%2][1] = dp[(i - 1)%2][1] > dp[(i - 1)%2][0] - prices[i]?dp[(i - 1)%2][1]:dp[(i - 1)%2][0] - prices[i];
+        }
+        return dp[(len - 1)%2][0];
+    }
+};
+```
 然后再优化，其实最后的结果只和前一天有关，前一天只和前前一天有关，所以只需要存储两天的数值就可以搞定。
 
 #### 贪心
