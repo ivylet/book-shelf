@@ -1,5 +1,5 @@
 ---
-title:SpringMVC数据绑定
+title: SpringMVC数据绑定
 ---
 
 [史上最全前端框架库汇总 - 知乎](https://zhuanlan.zhihu.com/p/333347987)

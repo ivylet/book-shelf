@@ -52,8 +52,7 @@ POST请求中文乱码
 
 扫描`Bean`时，避免Spring扫描到SpringMVC的`Bean`，有两种方法。
 
-- 直接扫描所需要的包名如  `@ComponentScan({"com.taytay.service","com.taytay.dao"})`
-
+- 直接扫描所需要的包名如`@ComponentScan({"com.taytay.service","com.taytay.dao"})`
 - 全部扫描，但是指定排除项目
 	```java
 	@ComponentScan(value="com.taytay",
