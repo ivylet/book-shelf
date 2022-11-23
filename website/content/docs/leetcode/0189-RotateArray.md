@@ -79,3 +79,51 @@ public:
     }
 };
 ```
+```c++
+class Solution {
+
+public:
+
+    void rotate(vector<int>& nums, int k) {
+
+        int len = nums.size();
+
+  
+
+        k = k % len;
+
+        int tmp;
+
+        for(int i = 0;i < len - k;i++){
+
+            tmp = nums[len - k + i - 1];
+
+            nums[len - k + i - 1] = nums[i];
+
+            nums[i] = tmp;
+
+        }
+
+    }
+
+};
+```
+
+输出 [4,5,6,7,2,3,1]
+预期 [5,6,7,1,2,3,4]
+
+
+
+
+0 1 2 3 4 5 6    k =3   k = 7 % 3
+
+6 5 4 3 2 1 0
+4 5 6 0 1 2 3
+4 5 6 0 1 2 3 
+
+      7 - 3 - 1 = 3 
+i     len - k + i -1
+0 - 3
+1 - 4
+2 - 5
+3 - 6
