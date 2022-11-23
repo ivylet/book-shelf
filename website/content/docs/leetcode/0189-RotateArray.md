@@ -79,51 +79,43 @@ public:
     }
 };
 ```
+然后是进行数组翻转，由于我们已经知道轮转后的数组是什么样，可以根据结果与原数组进行比较。
+[1,2,3,4,5,6,7] -> [5,6,7,1,2,3,4] 可以看做为两部分 一部分是由于后边的数组轮转而导致的位置后移，另一部分是在数组末端而因为轮转后移到前端。这两部分可以通过先进行全部翻转，再对这两部分进行分别翻转而得到结果。
 ```c++
 class Solution {
-
 public:
-
     void rotate(vector<int>& nums, int k) {
-
+        reverse(nums.begin(),nums.end());
         int len = nums.size();
-
-  
-
-        k = k % len;
-
-        int tmp;
-
-        for(int i = 0;i < len - k;i++){
-
-            tmp = nums[len - k + i - 1];
-
-            nums[len - k + i - 1] = nums[i];
-
-            nums[i] = tmp;
-
-        }
-
+        k = k % nums.size();
+        reverse(nums.begin(),nums.begin()+k);
+        reverse(nums.begin()+k,nums.end());
     }
-
 };
 ```
-
-输出 [4,5,6,7,2,3,1]
-预期 [5,6,7,1,2,3,4]
-
-
-
-
-0 1 2 3 4 5 6    k =3   k = 7 % 3
-
-6 5 4 3 2 1 0
-4 5 6 0 1 2 3
-4 5 6 0 1 2 3 
-
-      7 - 3 - 1 = 3 
-i     len - k + i -1
-0 - 3
-1 - 4
-2 - 5
-3 - 6
+### 其他方法
+该方法是根据第一种方法优化得到的。
+```c++
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int len = nums.size();
+        k = k % len;
+        int count = gcd(len,k);
+        for(int start = 0;start < count;++start){
+            int current = start;
+            do{
+                int next = (current + k)%len;
+                swap(nums[next],nums[start]);
+                current = next;
+            }while(current != start);
+        }
+    }    
+};
+```
+主要思路是
+1 2 3 4 5 6  k=2
+3 2 1 4 5 6
+5 2 1 4 3 6
+5 4 1 2 3 6
+5 6 1 2 3 4
