@@ -1,5 +1,5 @@
 ---
 title: 题目
-bookCollapseSection: true
-weight: 10
+bookCollapseSection: false
+weight: 3
 ---
