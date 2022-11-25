@@ -1,7 +1,105 @@
 ---
-title: SpringMVC数据绑定
+title: SringMVC
+date: 2022-09-29
 ---
 
+# SpringMVC
+
+SpringMVC与Servlet
+
+
+## SpringMVC简介
+### 概述
+
+### 入门程序
+
+快速开始
+
+
+
+
+
+### 基本类与配置
+
+
+
+请求与响应
+
+POST请求中文乱码
+
+
+
+结构：
+
+- com.taytay
+	- config
+	- controller
+	- service
+	- dao
+
+
+
+### `Bean`的加载机制
+
+一般而言，
+
+- SpringMVC相关`Bean`（表现层Bean）
+- Spirng控制的`Bean`
+	- 业务`Bean`（Service）
+	- 功能`Bean`（DataSource等）
+
+
+
+扫描`Bean`时，避免Spring扫描到SpringMVC的`Bean`，有两种方法。
+
+- 直接扫描所需要的包名如`@ComponentScan({"com.taytay.service","com.taytay.dao"})`
+- 全部扫描，但是指定排除项目
+	```java
+	@ComponentScan(value="com.taytay",
+	               excludeFilters = @ComponentScan.Filter(
+	              		type = FilterType.ANNOTATION,
+	                   	 classes = Controller.class
+	               )
+	              )
+			//按照注解排除结果
+			//扫描全部内容，但是排除以@Controller为注解的类
+	```
+
+- 不区分Spring与SpringMVC的`Bean`
+
+	[注解和XML的区别,和优缺点](https://blog.csdn.net/dreamweaver_zhou/article/details/77511745)
+
+`Bean`
+
+## SpringMVC的核心类与注解
+SpringMVC的基本组件
+
+
+
+
+
+
+### DispatcherServlet(前端控制器)
+拦截客户端请求后，根据具体规则分发给其他组件处理，所有请求都需要经过DispatcherServlet处理。
+### @RespController
+可以同时代表@Controller与@ResponseBody两个注解
+### @ResponseBody
+
+### @RequestBody
+
+### @PathVariable
+
+### @RequestMapping
+
+@GetMapping
+
+@PostMapping
+
+@PutMapping
+
+@DeleteMapping
+
+## 数据绑定
 [史上最全前端框架库汇总 - 知乎](https://zhuanlan.zhihu.com/p/333347987)
 
 1、同步请求和异步请求的区别
@@ -22,7 +120,7 @@ GET在请求时，接口的字节数有限制，支持小数据的提交，而PO
 
 
 
-## 浏览器请求
+### 浏览器请求
 
 GET
 
@@ -32,7 +130,7 @@ PUT
 
 DELETE
 
-## 文本数据数据传参
+### 文本数据数据传参
 
 - #### 普通参数
 
@@ -97,7 +195,7 @@ public String listPojoParamforJSON(List<User> list){
 }
 ```
 
-## JSON格式数据传参
+### JSON格式数据传参
 
 将类对象自动转换为JSON数据
 
@@ -126,4 +224,44 @@ public class UserController{
 }
 ```
 
-## 类型转换器
+### 类型转换器
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 拦截器
+
+### 概念
+
+Spring MVC 的拦截器（Interceptor）与 Java Servlet 的过滤器（Filter）类似，它主要用于拦截用户的请求并做相应的处理，通常应用在权限验证、记录请求信息的日志、判断用户是否登录等功能上。
+
+### 作用
+
+实现功能时，有时需要进行权限检查和日志记录，这些操作是需要在功能前后执行的。
+
+
+## RESTful风格
+
+### 风格
+风格即风格，建议，自己可以更改的，非规范。
+
+优点：隐藏资源的访问行为，无法通过地址得知对资源是何种操作，书写简化。
+
+RESTful是按照REST风格
+
+
+
+@RequestBody
+
+@PathVariable
+
+## 异常处理
