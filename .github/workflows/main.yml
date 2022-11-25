@@ -23,6 +23,10 @@ jobs:
           # if your docs needs submodules, uncomment the following line
           # submodules: true
 
+      - name: CD folder
+        run: |-
+          cd blog
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -36,7 +40,6 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          cd blog
           yarn run docs:build
           > blog/docs/.vuepress/dist/.nojekyll
 
