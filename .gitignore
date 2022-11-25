@@ -3,3 +3,4 @@ deploy-book-gh.sh
 deploy-gh.sh
 .obsidian
 /blog/package.json
+/blog/node_modules
