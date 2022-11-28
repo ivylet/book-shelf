@@ -34,7 +34,7 @@ jobs:
           cache: yarn
 
       - name: Install Deps
-        run: yarn install --frozen-lockfile
+        run: yarn install 
 
       - name: Build Docs
         env:
