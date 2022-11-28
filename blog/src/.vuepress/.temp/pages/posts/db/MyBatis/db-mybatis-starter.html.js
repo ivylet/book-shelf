@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-295b2e0a\",\"path\":\"/posts/db/MyBatis/db-mybatis-starter.html\",\"title\":\"MyBatis 快速开始\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"MyBatis 快速开始\",\"description\":\"MyBatis简单入门程序 不知道MyBatis是什么，或者不懂怎么运行的，可以先从一个简单的入门程序来了解MyBatis。 数据准备 创建在数据库中创建表，并在表中插入两条数据。### 创建实体类 实体类，包含每个对象的基本属性。 创建配置文件 MyBatis的配置文件。 创建映射文件 调用操控数据库方法来映射对应的sql语句，用于操控数据库。 测试...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://ivylet.github.io/posts/db/MyBatis/db-mybatis-starter.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"ivy的知识库\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"MyBatis 快速开始\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"MyBatis简单入门程序 不知道MyBatis是什么，或者不懂怎么运行的，可以先从一个简单的入门程序来了解MyBatis。 数据准备 创建在数据库中创建表，并在表中插入两条数据。### 创建实体类 实体类，包含每个对象的基本属性。 创建配置文件 MyBatis的配置文件。 创建映射文件 调用操控数据库方法来映射对应的sql语句，用于操控数据库。 测试...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"MyBatis简单入门程序\",\"slug\":\"mybatis简单入门程序\",\"link\":\"#mybatis简单入门程序\",\"children\":[{\"level\":3,\"title\":\"数据准备\",\"slug\":\"数据准备\",\"link\":\"#数据准备\",\"children\":[]},{\"level\":3,\"title\":\"创建实体类\",\"slug\":\"创建实体类\",\"link\":\"#创建实体类\",\"children\":[]},{\"level\":3,\"title\":\"创建配置文件\",\"slug\":\"创建配置文件\",\"link\":\"#创建配置文件\",\"children\":[]},{\"level\":3,\"title\":\"创建映射文件\",\"slug\":\"创建映射文件\",\"link\":\"#创建映射文件\",\"children\":[]},{\"level\":3,\"title\":\"测试类\",\"slug\":\"测试类\",\"link\":\"#测试类\",\"children\":[]}]}],\"readingTime\":{\"minutes\":1.64,\"words\":491},\"filePathRelative\":\"posts/db/MyBatis/db-mybatis-starter.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

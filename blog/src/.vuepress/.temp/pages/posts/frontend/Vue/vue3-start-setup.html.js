@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-b7d87d94\",\"path\":\"/posts/frontend/Vue/vue3-start-setup.html\",\"title\":\"初始化\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"初始化\",\"description\":\"创建一个 Vue 应用 ```bash\\r npm init vue@latest ``` 这一指令将会安装并执行 create-vue (https://github.com/vuejs/create-vue)，它是 Vue 官方的项目脚手架工具。你将会看到一些诸如 TypeScript 和测试支持之类的可选功能提示： ```bash ✔ Projec...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://ivylet.github.io/posts/frontend/Vue/vue3-start-setup.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"ivy的知识库\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"初始化\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"创建一个 Vue 应用 ```bash\\r npm init vue@latest ``` 这一指令将会安装并执行 create-vue (https://github.com/vuejs/create-vue)，它是 Vue 官方的项目脚手架工具。你将会看到一些诸如 TypeScript 和测试支持之类的可选功能提示： ```bash ✔ Projec...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:image\",\"content\":\"https://ivylet.github.io/\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"meta\",{\"name\":\"twitter:image:alt\",\"content\":\"初始化\"}]]},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"创建一个 Vue 应用\",\"slug\":\"创建一个-vue-应用\",\"link\":\"#创建一个-vue-应用\",\"children\":[]},{\"level\":2,\"title\":\"安装\",\"slug\":\"安装\",\"link\":\"#安装\",\"children\":[]},{\"level\":2,\"title\":\"模板语法\",\"slug\":\"模板语法\",\"link\":\"#模板语法\",\"children\":[{\"level\":3,\"title\":\"文本插值\",\"slug\":\"文本插值\",\"link\":\"#文本插值\",\"children\":[]},{\"level\":3,\"title\":\"原始 HTML\",\"slug\":\"原始-html\",\"link\":\"#原始-html\",\"children\":[]},{\"level\":3,\"title\":\"Attribute 绑定\",\"slug\":\"attribute-绑定\",\"link\":\"#attribute-绑定\",\"children\":[]},{\"level\":3,\"title\":\"使用JavaScript表达式\",\"slug\":\"使用javascript表达式\",\"link\":\"#使用javascript表达式\",\"children\":[]}]},{\"level\":2,\"title\":\"指令语法\",\"slug\":\"指令语法\",\"link\":\"#指令语法\",\"children\":[{\"level\":3,\"title\":\"参数 Arguments\",\"slug\":\"参数-arguments\",\"link\":\"#参数-arguments\",\"children\":[]},{\"level\":3,\"title\":\"动态参数\",\"slug\":\"动态参数\",\"link\":\"#动态参数\",\"children\":[]},{\"level\":3,\"title\":\"修饰符 Modifiers\",\"slug\":\"修饰符-modifiers\",\"link\":\"#修饰符-modifiers\",\"children\":[]}]},{\"level\":2,\"title\":\"响应式基础\",\"slug\":\"响应式基础\",\"link\":\"#响应式基础\",\"children\":[{\"level\":3,\"title\":\"<script setup>\",\"slug\":\"script-setup\",\"link\":\"#script-setup\",\"children\":[]}]}],\"readingTime\":{\"minutes\":11.05,\"words\":3315},\"filePathRelative\":\"posts/frontend/Vue/vue3-start-setup.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

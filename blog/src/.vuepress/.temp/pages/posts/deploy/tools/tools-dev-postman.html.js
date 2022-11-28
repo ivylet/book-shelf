@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-e69e6ee0\",\"path\":\"/posts/deploy/tools/tools-dev-postman.html\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{\"0\":\"t\",\"1\":\"i\",\"2\":\"t\",\"3\":\"l\",\"4\":\"e\",\"5\":\":\",\"6\":\"接\",\"7\":\"口\",\"8\":\"调\",\"9\":\"试\",\"10\":\"工\",\"11\":\"具\",\"12\":\"P\",\"13\":\"o\",\"14\":\"s\",\"15\":\"t\",\"16\":\"m\",\"17\":\"a\",\"18\":\"n\",\"description\":\"PostMan中文文档 (https://postman.org.cn/)\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://ivylet.github.io/posts/deploy/tools/tools-dev-postman.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"ivy的知识库\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"PostMan中文文档 (https://postman.org.cn/)\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"excerpt\":\"\",\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":15},\"filePathRelative\":\"posts/deploy/tools/tools-dev-postman.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
