@@ -1,21 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+
 <template>
-    <div>
-      <button @click="change">{{buttonName}}</button>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        buttonName: "点击按钮"
-      };
-    },
-    methods: {
-      change() {
-        console.log(111);
-      }
-    }
-  };
-  </script>
-  
+  <button @click="count++">You clicked me {{ count }} times.</button>
+</template>

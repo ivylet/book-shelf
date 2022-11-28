@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-4e2dbbd3\",\"path\":\"/posts/language/Python/py-base-exception.html\",\"title\":\"python异常处理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"python异常处理\",\"description\":\"异常 Python所有的内置异常 ```python BaseException # 所有异常的基类 +-- SystemExit # 解释器请求退出 +-- KeyboardInterrupt # 用户中断执行(通常是输入^C) +-- GeneratorExit # 生成器(generator)发生异常来通知退出 +-- Exception # 常...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://ivylet.github.io/posts/language/Python/py-base-exception.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"ivy的知识库\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"python异常处理\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"异常 Python所有的内置异常 ```python BaseException # 所有异常的基类 +-- SystemExit # 解释器请求退出 +-- KeyboardInterrupt # 用户中断执行(通常是输入^C) +-- GeneratorExit # 生成器(generator)发生异常来通知退出 +-- Exception # 常...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"异常\",\"slug\":\"异常\",\"link\":\"#异常\",\"children\":[{\"level\":3,\"title\":\"Python所有的内置异常\",\"slug\":\"python所有的内置异常\",\"link\":\"#python所有的内置异常\",\"children\":[]},{\"level\":3,\"title\":\"某些模块中的异常\",\"slug\":\"某些模块中的异常\",\"link\":\"#某些模块中的异常\",\"children\":[]},{\"level\":3,\"title\":\"用户自定义的异常\",\"slug\":\"用户自定义的异常\",\"link\":\"#用户自定义的异常\",\"children\":[]}]},{\"level\":2,\"title\":\"异常捕获\",\"slug\":\"异常捕获\",\"link\":\"#异常捕获\",\"children\":[{\"level\":3,\"title\":\"异常捕获中的一些关键字\",\"slug\":\"异常捕获中的一些关键字\",\"link\":\"#异常捕获中的一些关键字\",\"children\":[]},{\"level\":3,\"title\":\"raise\",\"slug\":\"raise\",\"link\":\"#raise\",\"children\":[]}]}],\"readingTime\":{\"minutes\":5.02,\"words\":1507},\"filePathRelative\":\"posts/language/Python/py-base-exception.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

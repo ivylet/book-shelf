@@ -60,4 +60,4 @@ footer: MIT Licensed | Copyright © 2019-present Mr.Hope
 ---
 <span v-for="i in 3">{{ i }} </span>
 
-<Badge >这里面是什么东西</Badge>   
+<Book></Book>
