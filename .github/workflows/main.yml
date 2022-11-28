@@ -23,18 +23,23 @@ jobs:
           # if your docs needs submodules, uncomment the following line
           # submodules: true
 
+      - name: CD folder
+        run: |-
+          cd ./blog
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: yarn
 
+      - name: Install Deps
+        run: yarn install --frozen-lockfile
+
       - name: Build Docs
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          cd blog
-          yarn install --frozen-lockfile
           yarn run docs:build
           > blog/src/.vuepress/dist/.nojekyll
 
