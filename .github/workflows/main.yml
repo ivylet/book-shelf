@@ -34,8 +34,8 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           cd blog
-          yarn install --frozen-lockfile
-          yarn run docs:build
+          npm install --frozen-lockfile
+          npm run docs:build
           > blog/src/.vuepress/dist/.nojekyll
 
       - name: Deploy Docs
