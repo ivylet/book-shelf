@@ -43,10 +43,19 @@ jobs:
           yarn run docs:build
           > src/.vuepress/dist/.nojekyll
 
-      - name: Deploy Docs
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          # This is the branch where the docs are deployed to
-          branch: gh-pages
-          folder: blog/src/.vuepress/dist
+      # - name: Deploy Docs
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     # This is the branch where the docs are deployed to
+      #     branch: gh-pages
+      #     folder: blog/src/.vuepress/dist
 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名
+          external_repository: ivylet/ivylet.github.io # Pages 远程仓库 
+          publish_dir: "blog/src/.vuepress/dist"
+          keep_files: false # remove existing files
+          publish_branch: master  # deploying branch
+          commit_message: ${{ github.event.head_commit.message }}
