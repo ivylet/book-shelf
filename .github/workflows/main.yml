@@ -29,14 +29,12 @@ jobs:
           node-version: 16
           cache: yarn
 
-      - name: Install Deps
-        run: yarn install --frozen-lockfile
-
       - name: Build Docs
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          cd ./blog
+          cd blog
+          yarn install --frozen-lockfile
           yarn run docs:build
           > blog/src/.vuepress/dist/.nojekyll
 
@@ -45,5 +43,5 @@ jobs:
         with:
           # This is the branch where the docs are deployed to
           branch: gh-pages
-          folder: blog/docs/.vuepress/dist
+          folder: blog/src/.vuepress/dist
 
