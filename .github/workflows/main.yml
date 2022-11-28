@@ -41,7 +41,7 @@ jobs:
         run: |-
           cd ./blog
           yarn run docs:build
-          > blog/src/.vuepress/dist/.nojekyll
+          > src/.vuepress/dist/.nojekyll
 
       - name: Deploy Docs
         uses: JamesIves/github-pages-deploy-action@v4
