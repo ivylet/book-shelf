@@ -23,9 +23,6 @@ jobs:
           # if your docs needs submodules, uncomment the following line
           # submodules: true
 
-      - name: CD folder
-        run: |-
-          cd ./blog
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -34,7 +31,9 @@ jobs:
           
 
       - name: Install Deps
-        run: yarn install 
+        run: |-
+          cd ./blog
+          yarn install 
 
       - name: Build Docs
         env:
