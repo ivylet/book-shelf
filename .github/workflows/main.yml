@@ -41,7 +41,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           yarn run docs:build
-          > blog/docs/.vuepress/dist/.nojekyll
+          > blog/src/.vuepress/dist/.nojekyll
 
       - name: Deploy Docs
         uses: JamesIves/github-pages-deploy-action@v4

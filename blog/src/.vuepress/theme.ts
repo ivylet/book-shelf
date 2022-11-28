@@ -54,7 +54,6 @@ export default hopeTheme({
       
     },
     mdEnhance: {
-      enableAll:false,
       container:true,
       align:true,
 
