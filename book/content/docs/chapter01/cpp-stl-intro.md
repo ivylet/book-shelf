@@ -113,12 +113,12 @@ int main(){
 - void push_back(const T& x):向量尾部增加一个元素X
 - iterator insert(iterator it,const T& x):向量中迭代器指向元素前增加一个元素x
 - iterator insert(iterator it,int n,const T& x):向量中迭代器指向元素前增加n个相同的元素x
-- iterator insert(iterator it,const_iterator first,const_iterator last):向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据
+- iterator insert(iterator it,const_iterator first,const_iterator last):向量中迭代器指向元素前插入另一个相同类型向量的\[first,last)间的数据
 
 ##### 3.删除函数
 
 - iterator erase(iterator it):删除向量中迭代器指向元素
-- iterator erase(iterator first,iterator last):删除向量中[first,last)中元素
+- iterator erase(iterator first,iterator last):删除向量中\[first,last)中元素
 - void pop_back():删除向量中最后一个元素
 - void clear():清空向量中所有元素
 
@@ -146,7 +146,7 @@ int main(){
 
 - void swap(vector&):交换两个同类型向量的数据
 - void assign(int n,const T& x):设置向量中前n个元素的值为x
-- void assign(const_iterator first,const_iterator last):向量中[first,last)中元素设置成当前向量元素
+- void assign(const_iterator first,const_iterator last):向量中\[first,last)中元素设置成当前向量元素
 
 #### 访问容器内元素
 
@@ -881,6 +881,22 @@ int main()
 ### string
 
 ### map
+#### 定义
+#### map
+```c++
+map<int,int> maps;
+```
+##### 相关函数
+- maps.insert() 插入
+- maps[key] = value;数组方式插入
+- maps.find(num) 查找一个元素
+- maps.clear()清空
+- maps.szie()长度
+- maps.begin()返回指向map头部的迭代器
+- maps.end()返回指向map末尾的迭代器
+- maps.erase(num)删除一个元素。
+#### unordered_map
+与map容器仅有一点不同的是，unordered_map是无序的。其底层采用的是哈希表存储，不会自动对存储的键值对进行排序。
 
 ### queue
 

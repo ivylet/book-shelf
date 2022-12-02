@@ -45,31 +45,47 @@ date: 2022-11-30T17:38:37+08:00
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+	    if(nums1.size() > nums2.size())
+		    return intersect(nums2,nums1);
         int len1 = nums1.size();
         int len2 = nums2.size();
         vector<int> ans;
-        if(len1>len2){
-            for(int i = 0;i<len2;i++){
-                for(int j = 0;j<len1;j++){
-                    if(nums2[i] == nums1[j]){
-                        ans.push_back(nums2[i]);
-                        nums1[j] = -1;//解决相同元素的次数问题
-                        break;
-                    }
-                }
-            }
-        }else{
-            for(int i = 0;i<len1;i++){
-                for(int j = 0;j<len2;j++){
-                    if(nums1[i] == nums2[j]){
-                        ans.push_back(nums1[i]);
-                        nums2[j] = -1;
-                        break;
-                    }
-                }
-            }
-        }
+		for(int i = 0;i<len1;i++){
+			for(int j = 0;j<len2;j++){
+				if(nums1[i] == nums2[j]){
+					ans.push_back(nums1[i]);
+					nums2[j] = -1;
+					break;
+				}
+			}
+		}
         return ans;
     }
 };
 ```
+或者进行排序，然后使用双指针
+```c++
+class Solution { 
+	public: 
+		vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
+			vector<int> ans; 
+			sort(nums1.begin(),nums1.end()); 
+			sort(nums2.begin(),nums2.end()); 
+			int len1 = nums1.size(); 
+			int len2 = nums2.size(); 
+			int p1 = 0; 
+			int p2 = 0; 
+			while(p1<len1&&p2<len2){
+				if(nums1[p1] < nums2[p2]){p1++;} 
+				else if(nums1[p1] == nums2[p2]){
+					ans.push_back(nums1[p1]);
+					p1++; 
+					p2++; 
+				} 
+				else if(nums1[p1]>nums2[p2]){ p2 ++;} 
+			}
+			return ans;
+		} 
+};
+```
+或者使用哈希表
