@@ -1,6 +1,6 @@
 ---
-title: 
-date: 
+title: 移动零
+date: 2022-12-01T15:03:15+08:00
 ---
 ## 题目
 <div class="px-5 pt-4"><div class="_1l1MA"><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
