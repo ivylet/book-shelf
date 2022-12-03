@@ -40,8 +40,11 @@ date: 2022-12-02T14:56:26+08:00
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 </div></div>
+
 ## 分析
+只考虑
 ## 题解
+直接点
 ```c++
 class Solution {
 public:
@@ -60,4 +63,5 @@ public:
         return digits;
     }
 };
-```
+``` 
+的
