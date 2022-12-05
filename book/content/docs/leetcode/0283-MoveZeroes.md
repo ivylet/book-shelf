@@ -90,3 +90,34 @@ public:
     }
 };
 ```
+改良版
+```c++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int len = nums.size();
+        int slow = 0;//找
+        int fast = 1;//找非零
+        while(fast < len){
+            if(nums[slow] == 0){
+                if(nums[fast] != 0){
+                    nums[slow] = nums[fast];
+                    nums[fast] = 0;
+                    slow++;
+                    fast++;
+                }else{
+                    fast++;
+                }
+            }else{
+                slow++;
+                fast++;
+            }  
+        }
+        return;
+    }
+};
+```
+其他方法:
+```c++
+class Solution { public static void moveZeroes(int[] nums) { int count = 0; for (int i = 0; i < nums.length; i++) { if (nums[i] == 0) {count++;continue;} nums[i - count] = nums[i]; } while (count>0){ nums[nums.length-count]=0; count--; } } }
+```

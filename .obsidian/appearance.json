@@ -1,0 +1,11 @@
+{
+  "accentColor": "#4adb48",
+  "theme": "obsidian",
+  "interfaceFontFamily": "Microsoft YaHei",
+  "textFontFamily": "华文楷体",
+  "baseFontSize": 18,
+  "cssTheme": "Blue Topaz",
+  "nativeMenus": true,
+  "translucency": false,
+  "enabledCssSnippets": []
+}

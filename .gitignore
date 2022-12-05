@@ -1,6 +1,5 @@
 .vscode
 deploy-book-gh.sh
 deploy-gh.sh
-.obsidian
 /blog/node_modules
 /blog/yarn.lock

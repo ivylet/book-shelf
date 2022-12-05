@@ -1,0 +1,178 @@
+{
+  "main": {
+    "id": "c4a8f6c8002d3881",
+    "type": "split",
+    "children": [
+      {
+        "id": "e17ed889ffe16eef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd5dde3c4d7be0b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "book/content/docs/leetcode/0283-MoveZeroes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9aa272c0927e1118",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "book/content/docs/chapter01/cpp-stl-argo.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "73d3f5b235fb3745",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "book/content/docs/chapter01/argo-datastru.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "850b8933122d8a26",
+    "type": "split",
+    "children": [
+      {
+        "id": "135207bbe8872af4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5b54d4b94a7a8907",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e38b23282057c2d5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "302f14e9b3d40b8e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 263.5110321044922
+  },
+  "right": {
+    "id": "176754467ee7b0c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "18a3b9d205fd9037",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6cfa8aecdb1d5f08",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "book/content/docs/chapter01/argo-datastru.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bb4cf51a3297533c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "book/content/docs/chapter01/argo-datastru.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "74eacf16befc990b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c969ecc19598b8c1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "book/content/docs/chapter01/argo-datastru.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "73d3f5b235fb3745",
+  "lastOpenFiles": [
+    "book/content/docs/chapter01/cpp-stl-argo.md",
+    "book/content/docs/chapter01/cpp-stl-intro.md",
+    "book/content/docs/chapter01/datastru.md",
+    "book/content/docs/chapter03/array.md",
+    "book/content/docs/leetcode/0001-TwoSum.md",
+    "book/content/docs/leetcode/0283-MoveZeroes.md",
+    "README.md",
+    "book/content/docs/leetcode/0066-PlusOne.md",
+    "blog/src/posts/db/MyBatis/db-mybatis-config.md",
+    "book/content/docs/chapter03/_index.md"
+  ]
+}
