@@ -1,0 +1,7 @@
+.obsidian
+.vscode
+deploy-book-gh.sh
+deploy-gh.sh
+/blog/node_modules
+/blog/yarn.lock
+main.yml
