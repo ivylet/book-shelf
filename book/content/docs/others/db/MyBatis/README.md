@@ -1,4 +1,4 @@
 ---
 title: MyBatis
-index: false
+
 ---
