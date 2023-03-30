@@ -1,3 +1,6 @@
+---
+title: 基础算法一
+---
 ## 快速排序
 主要思想：在数组中选择一个值，然后遍历数组，比这个值大的放到这个值后边，比这个值小的放到这个值的前边。
 代码：
@@ -7,14 +10,16 @@ void quick_sort(int q[], int l, int r){
 	int x = q[(l + r) >> 1], i = l - 1, j = r + 1;
 	while(i < j)
 	{
-		do i ++ ; while(q[i] > x);
-		do j -- ; while(q[j] < x);
+		do i ++ ; while(q[i] < x);
+		do j -- ; while(q[j] > x);
 		if(i < j) swap(q[i],q[j]);
 	} 
 	quick_sort(q,l, j);
 	quick_sort(q,j+1,r);
 }
 ```
+为什么最后是j与j+1呢?
+因为范围确保的是左边是小于等于x，右边大于等于x。而循环判断结束的限制是i<j,则可能出现的情况是`i=j`或`i = j + 1`。如果是`i=j+1`那么左边为l到i不满足左边都小于等于x，因为`q[i]>x`。那为什么不是l到i-1呢？如果是l到i-1那么可能出现只有两个数的情况，然后划分的时候右边化为空集，左边为两个数的数组，此时陷入无尽循环。
 ## 归并排序
 主要思想: 将数组拆分为两部分，前半部分和后半部分，然后这两部分分别进行排序。排序完成后从这两个数组开头开始比较，较小的数先插入到数组头位置，以此类推。
 ```cpp
@@ -182,3 +187,100 @@ vector<int> divBigInteger(vector<int> A,int B,int &d)
 }
 ```
 ## 前缀和
+前缀和是指用一个数组来存前i个数据的和，这样方便计算区间和的值。
+### 一维前缀和
+```cpp
+const int N = 100010;
+int s[N];
+int a[N];
+for(int i = 1; i <= n ;i++)
+{
+	s[i] = s[i - 1] + a[i];
+}
+```
+当要计算区间l到r的和时。
+```cpp
+printf("%d",s[r] - s[l - 1]);
+```
+### 二维前缀和
+计算前缀和数组
+```cpp
+const int N = 1010;
+int a[N][N];
+int s[N][N];
+for(int i = 1;i <= n ;i++){
+	for(int j = 1;j <= m ;j++){
+		s[i][j] = a[i][j] + s[i][j - 1] + s[i-1][j] - s[i-1][j-1];
+	}   
+}
+```
+求区间(i,j)到(k,l)内矩形内的和
+```cpp
+printf("%d\n",s[k][l] - s[k][j - 1] - s[i - 1][l] + s[i - 1][j - 1]);
+```
+## 差分
+差分是指用一个数组来存相邻数的差，这样方便处理对区间内的数都加上某个数的操作。
+### 一维差分
+定义插入函数
+```cpp
+const int N = 100010;
+int arr[N];
+int b[N];
+void insert(int l,int r,int c)
+{
+    b[l] += c;
+    b[r + 1] -= c;
+}
+```
+区间内减去C
+```cpp
+b[l] = b[l] + c;
+b[r + 1] = b[r + 1] - c;
+        ```
+求原数组，输出结果
+```cpp
+for(int i = 1;i <= n ;i++)
+{
+	b[i] += b[i-1];
+}
+
+for(int i = 1;i <= n ;i++)
+{
+	printf("%d ",b[i]);
+}
+```
+### 二维差分
+定义插入函数
+```cpp
+const int N = 1010;
+int n,m,q;
+int arr[N][N];
+int b[N][N];
+void insert(int x1,int y1,int x2,int y2,int c){
+	b[x1][y1] += c;
+	b[x2 + 1][y1] -= c;
+	b[x1][y2 + 1] -= c;
+	b[x2 + 1][y2 + 1] += c;
+}
+```
+计算差分数组。
+```cpp
+while(q--){
+	int x1,x2,y1,y2,c;
+	scanf("%d%d%d%d%d",&x1,&y1,&x2,&y2,&c);
+	insert(x1,y1,x2,y2,c);
+}
+```
+逆运算求原数组并输出。
+```cpp
+    for(int i = 1; i<=n;i++)
+        for(int j = 1;j<=m;j++){
+            b[i][j] += b[i-1][j] + b[i][j-1] - b[i-1][j-1];
+        }
+    for(int i = 1;i <= n;i++){
+        for(int j = 1; j<=m;j++){
+            printf("%d ",b[i][j]);
+        }
+        printf("\n");
+    }
+```
