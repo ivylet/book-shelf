@@ -344,3 +344,5 @@ while(x > 0){
 printf("%d ",num);
 ```
 ## 离散化
+![微信图片_20221102023734.jpg](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304021648953.jpg)
+![](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304021648953.jpg)
