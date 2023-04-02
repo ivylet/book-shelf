@@ -1,5 +1,5 @@
 ---
-title: 算法学习
-bookCollapseSection: false
+title: 算法知识
+bookCollapseSection: true
 weight: 4
 ---

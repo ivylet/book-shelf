@@ -1,5 +1,5 @@
 ---
 title: 初级算法
-bookCollapseSection: false
+bookCollapseSection: true
 weight: 3
 ---

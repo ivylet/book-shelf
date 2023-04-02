@@ -2,8 +2,9 @@
 title: 基础算法一
 ---
 ## 快速排序
-主要思想：在数组中选择一个值，然后遍历数组，比这个值大的放到这个值后边，比这个值小的放到这个值的前边。
-代码：
+##### 主要思想: 
+在数组中选择一个值，然后遍历数组，比这个值大的放到这个值后边，比这个值小的放到这个值的前边。
+##### 代码实现
 ```cpp
 void quick_sort(int q[], int l, int r){
 	if(l >= r) return;
@@ -18,10 +19,12 @@ void quick_sort(int q[], int l, int r){
 	quick_sort(q,j+1,r);
 }
 ```
-为什么最后是j与j+1呢?
+为什么最后是j与j+1呢?  
 因为范围确保的是左边是小于等于x，右边大于等于x。而循环判断结束的限制是i<j,则可能出现的情况是`i=j`或`i = j + 1`。如果是`i=j+1`那么左边为l到i不满足左边都小于等于x，因为`q[i]>x`。那为什么不是l到i-1呢？如果是l到i-1那么可能出现只有两个数的情况，然后划分的时候右边化为空集，左边为两个数的数组，此时陷入无尽循环。
 ## 归并排序
-主要思想: 将数组拆分为两部分，前半部分和后半部分，然后这两部分分别进行排序。排序完成后从这两个数组开头开始比较，较小的数先插入到数组头位置，以此类推。
+##### 主要思想: 
+将数组拆分为两部分，前半部分和后半部分，然后这两部分分别进行排序。排序完成后从这两个数组开头开始比较，较小的数先插入到数组头位置，以此类推。
+##### 代码实现
 ```cpp
 void merged_sort(int a[],int l,int r){
     if(l >= r) return;
@@ -39,12 +42,13 @@ void merged_sort(int a[],int l,int r){
 }
 ```
 ## 二分
-算法思路：假设目标值在闭区间[l, r]中， 每次将区间长度缩小一半，当l = r时，我们就找到了目标值。
+##### 主要思想
+假设目标值在闭区间`[l, r]`中， 每次将区间长度缩小一半，当l = r时，我们就找到了目标值。
 有单调性可以二分，使用二分不一定有单调性。
 ### 整数二分
-选择不同版本主要是看check函数，如果答案在[l, mid]和[mid + 1, r]与[l, mid - 1]和[mid, r]这两种情况中的一种，则需要判断是否在算mid时多加一
-版本1
-当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，其更新操作是r = mid或者l = mid + 1;，计算mid时不需要加1。
+选择不同版本主要是看check函数，如果答案在`[l, mid]`和`[mid + 1, r]`与`[l, mid - 1]`和`[mid, r]`这两种情况中的一种，则需要判断是否在计算mid时多加一
+###### 版本1
+当我们将区间`[l, r]`划分成`[l, mid]`和`[mid + 1, r]`时，其更新操作是`r = mid`或者`l = mid + 1`;，计算mid时不需要加1。
 
 C++ 代码模板：
 ```cpp
@@ -59,8 +63,8 @@ int bsearch_1(int l, int r)
     return l;
 }
 ```
-版本2
-当我们将区间[l, r]划分成[l, mid - 1]和[mid, r]时，其更新操作是r = mid - 1或者l = mid;，此时为了防止死循环，计算mid时需要加1。
+###### 版本1
+当我们将区间`[l, r]`划分成`[l, mid - 1]`和`[mid, r]`时，其更新操作是`r = mid - 1`或者`l = mid`;，此时为了防止死循环，计算mid时需要加1。
 
 C++ 代码模板：
 ```cpp
@@ -97,10 +101,11 @@ double sancigen(double n){
 }
 ```
 ## 高精度
-高精度适用于长数据(位数很长)运算，c++中进行长数据运算会出现溢出为负的情况，而java、python没有这种问题。
+##### 应用场景
+如果一个数据很大，大于`int`与`long long`的数据表示范围，即\[-$2^{31}$,$2^{31} - 1$\]和\[-$2^{63}$,$2^{63} - 1$\]无法表示.那么则需要进行高精度计算.c++中进行长数据运算会出现溢出为负的情况，而java、python没有这种问题（因为一般会自动转换为更大变量）。
 一般情况为四种情况，大整数的加减乘除。  
-### 存储数据
-一般情况下，大数据int存不下，我们可以使用数组存。一般使用大端模式，即高位存高位，低位存低位，便于高位进位，否则进位时需要把数组整体后移。 用vector存比较方便，因为有size()函数返回长度。
+### 计算前预处理
+一般情况下，大数据int甚至`long long`存不下，我们可以使用数组存。一般使用大端模式，即高位存高位，低位存低位，便于高位进位，否则进位时需要把数组整体后移。 用vector存比较方便，因为有size()函数返回长度。
 数据12345，在数组中存储的顺序是54321。
 ### 加法
 计算过程就是类似模拟加减法运算。  
@@ -344,5 +349,81 @@ while(x > 0){
 printf("%d ",num);
 ```
 ## 离散化
-![微信图片_20221102023734.jpg](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304021648953.jpg)
-![](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304021648953.jpg)
+##### 主要思想
+在一个长区间，是很长很长的区间中，存在零散的数据。这种情况下找区间内的值，如果一个个遍历会很费时（因为区间很长），所以有了离散化的想法。
+##### 全部代码
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+typedef pair<int, int> PII;
+
+const int N = 300010;
+
+int n, m;
+int a[N], s[N];
+
+vector<int> alls;
+vector<PII> add, query;
+
+int find(int x)
+{
+    int l = 0, r = alls.size() - 1;
+    while (l < r)
+    {
+        int mid = l + r >> 1;
+        if (alls[mid] >= x) r = mid;
+        else l = mid + 1;
+    }
+    return r + 1;
+}
+
+int main()
+{
+    cin >> n >> m;
+    for (int i = 0; i < n; i ++ )
+    {
+        int x, c;
+        cin >> x >> c;
+        add.push_back({x, c});
+
+        alls.push_back(x);
+    }
+
+    for (int i = 0; i < m; i ++ )
+    {
+        int l, r;
+        cin >> l >> r;
+        query.push_back({l, r});
+
+        alls.push_back(l);
+        alls.push_back(r);
+    }
+
+    // 去重
+    sort(alls.begin(), alls.end());
+    alls.erase(unique(alls.begin(), alls.end()), alls.end());
+
+    // 处理插入
+    for (auto item : add)
+    {
+        int x = find(item.first);
+        a[x] += item.second;
+    }
+
+    // 预处理前缀和
+    for (int i = 1; i <= alls.size(); i ++ ) s[i] = s[i - 1] + a[i];
+
+    // 处理询问
+    for (auto item : query)
+    {
+        int l = find(item.first), r = find(item.second);
+        cout << s[r] - s[l - 1] << endl;
+    }
+
+    return 0;
+}
+```
