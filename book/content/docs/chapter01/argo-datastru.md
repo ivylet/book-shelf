@@ -125,4 +125,6 @@ set<int> gather;
 # 算法
 ## Algorithm[常用算法函数]
 
+# 其他
+[C++ pair的基本用法总结（整理） - 知乎](https://zhuanlan.zhihu.com/p/372163352)
 `

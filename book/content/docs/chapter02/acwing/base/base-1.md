@@ -350,7 +350,10 @@ printf("%d ",num);
 ```
 ## 离散化
 ##### 主要思想
-在一个长区间，是很长很长的区间中，存在零散的数据。这种情况下找区间内的值，如果一个个遍历会很费时（因为区间很长），所以有了离散化的想法。
+在一个长区间，是很长很长的区间中，存在零散的数据。这种情况下找区间内的值，如果一个个遍历会很费时（因为区间很长），所以有了离散化的想法。  
+一般是将数据依照顺序来与自然数一一对应.如果有区间那么也添加到其中.   
+以一个题目为例:
+[802. 区间和 - AcWing题库](https://www.acwing.com/problem/content/804/)
 ##### 全部代码
 ```cpp
 #include <iostream>
@@ -364,12 +367,12 @@ typedef pair<int, int> PII;
 const int N = 300010;
 
 int n, m;
-int a[N], s[N];
+int a[N], s[N];//定义离散化后的数组,与前缀和数组.
 
-vector<int> alls;
-vector<PII> add, query;
+vector<int> alls;//存储需要离散化的值,并将其与自然数映射.
+vector<PII> add, query;//存储添加数据对,与查询数据范围.
 
-int find(int x)
+int find(int x)//根据离散化的数查询自然数对应的位置.
 {
     int l = 0, r = alls.size() - 1;
     while (l < r)
@@ -378,7 +381,7 @@ int find(int x)
         if (alls[mid] >= x) r = mid;
         else l = mid + 1;
     }
-    return r + 1;
+    return r + 1;//因为要使用前缀和,所以一般数组以1开头,所以这里加一.
 }
 
 int main()
@@ -390,7 +393,7 @@ int main()
         cin >> x >> c;
         add.push_back({x, c});
 
-        alls.push_back(x);
+        alls.push_back(x);//
     }
 
     for (int i = 0; i < m; i ++ )
@@ -406,7 +409,10 @@ int main()
     // 去重
     sort(alls.begin(), alls.end());
     alls.erase(unique(alls.begin(), alls.end()), alls.end());
-
+	//担心一个点加两次数却被去重?
+	//这里只存储位置,加数在后边遍历添加数据对中,
+	//如果一个点多加两次,那么add中也有两条对应的.
+	
     // 处理插入
     for (auto item : add)
     {
