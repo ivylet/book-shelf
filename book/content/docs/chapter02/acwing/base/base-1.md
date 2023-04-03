@@ -433,3 +433,54 @@ int main()
     return 0;
 }
 ```
+## 区间合并
+##### 问题提出
+给出`n`个区间范围,如果区间有公共范围,则合并.求最终剩下几个区间.
+##### 主要思路
+可以按照左端点大小进行排序,然后检查右端点与下一个区间的左端点的关系,如果包含则并入,否则不处理,划分到下一个区间,
+##### 主要代码
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+const int N = 100010;
+typedef pair<int,int> PAIR;
+
+vector<PAIR> seg;
+
+
+void merged(vector<PAIR>& seg){
+    vector<PAIR> res;
+    int st, ed;
+    st = -2e9;
+    ed = -2e9;
+    sort(seg.begin(),seg.end());
+    for(auto item:seg){
+        if(ed < item.first){
+            if(ed != -2e9){
+                res.push_back({st,ed});    
+            }
+            st = item.first;
+            ed = item.second;
+        }else ed = max(ed,item.second);
+    }
+    if(st != -2e9) res.push_back({st,ed});   
+    seg = res;
+}
+int main(){
+    int n;
+    cin >> n;
+    for(int i = 0 ; i < n ;i ++){
+        int l , r;
+        cin >> l >> r;
+        seg.push_back({l,r});
+    }
+    merged(seg);
+    cout << seg.size();
+    return 0;
+}
+```
+大概就是这样了
