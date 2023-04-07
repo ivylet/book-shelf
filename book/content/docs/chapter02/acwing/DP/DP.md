@@ -88,3 +88,48 @@ int main(){
 有很多组，每组有多种
 ## 线性DP
 ## 区间DP
+## 其他
+[3417. 砝码称重 - AcWing题库](https://www.acwing.com/problem/content/3420/)
+砝码称重问题
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int N = 110;
+const int MAX = 2e5+10,B = MAX / 2;
+
+int w[N];
+bool f[N][MAX];
+
+int main(){
+    int n,m;
+    m = 0;
+    scanf("%d",&n);
+    for(int i = 1 ; i <= n ; i++) scanf("%d",&w[i]),m += w[i];
+    
+    f[0][B] = true;
+    for(int i = 1 ; i <= n ; i++){
+        for(int j = -m ; j <= m ; j ++){
+            //以下三种情况只要有一种满足 则f[i][j + B] 就满足.
+            
+            //不选
+            f[i][j + B] = f[i - 1][j + B];
+            //选,但是放另外一边
+            if(j + w[i] <= m)f[i][j + B] |= f[i - 1][j + w[i] + B];
+            //选,但是放一起
+            if(j - w[i] >= -m)f[i][j + B] |= f[i - 1][j - w[i] + B];
+            
+            }
+        }
+    
+    int sum = 0;
+    
+    for(int i = 1 ; i <= m ; i++){
+        if(f[n][i + B]) sum ++;
+    }
+    printf("%d",sum);
+    
+    return 0;
+}
+```
