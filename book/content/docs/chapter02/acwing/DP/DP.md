@@ -87,6 +87,47 @@ int main(){
 ### 分组背包
 有很多组，每组有多种
 ## 线性DP
+最长上升子序列
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int N = 1010;
+int n;
+int a[N],f[N],g[N];
+
+int main(){
+    scanf("%d",&n);
+    for(int i = 1 ; i <= n ; i ++){
+        scanf("%d",&a[i]);
+    }
+    for(int i = 1 ; i <=n ; i ++){
+        f[i] = 1;
+        for(int j = 1 ; j < i ; j ++){
+            if(a[i] > a[j]){
+                if(f[j] + 1 > f[i]){
+                    f[i] = f[j] + 1;   
+                    g[i] = j;
+                }
+            }
+        }
+    }
+    int k = 0;
+    for(int i = 1 ; i <= n; i++){
+        // printf("%d ",f[i]);
+        if(f[i] > f[k]){
+            k = i;
+        }
+    }
+    printf("\n%d\n",f[k]);
+    for(int i = 0 ,len = f[k]; i < len ; i++){
+        printf("%d ",a[k]);
+        k = g[k];
+    }
+    return 0;
+}
+```
 ## 区间DP
 ## 其他
 [3417. 砝码称重 - AcWing题库](https://www.acwing.com/problem/content/3420/)
