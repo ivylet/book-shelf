@@ -335,3 +335,44 @@ int main(){
 ```
 
 ## KMP
+KMP是一种字符串匹配算法,该算法充分体现了利用已有信息降低操作数,即时间复杂度.
+完整代码
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int M = 1e6 + 10, N = 1e5 + 10;
+//定义 字符串 str 与 模板串 ptn
+char str[M],ptn[N];
+int n,m;
+// 定义next数组
+int ne[N];
+
+int main()
+{
+    scanf("%d%s%d%s",&n,ptn + 1,&m,str+1);
+	//next数组第一位是0 所以从第二位开始
+	// 计算next数组
+    for(int i = 2 , j = 0 ; i <= n ; i++)
+    {
+	    // 如果j是0 就没办法再往前了
+	    // 如果当前与
+        while(j && ptn[i] != ptn[j + 1])j = ne[j];
+        if(ptn[i] == ptn[j+1]) j ++;
+        ne[i] = j;
+    }
+    
+    for(int i = 1 , j = 0 ; i <= m ; i++)
+    {
+        while(j && str[i] != ptn[j + 1]) j = ne[j];
+        if(str[i] == ptn[j + 1]) j ++;
+        if(j == n)
+        {
+            printf("%d ",i - n);
+            j = ne[j];
+        }
+    }
+    return 0;
+}
+```
