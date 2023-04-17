@@ -1,5 +1,5 @@
 ---
-title: 初级算法
+title: 考研数据结构
 bookCollapseSection: true
 weight: 3
 ---
