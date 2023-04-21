@@ -487,7 +487,114 @@ void query(int a,int b)
 将一个集合中的数通过一个函数映射到另外一个集合中。例如离散化中，将大范围中的数据映射到小范围的区间上，这是一种哈希映射，但这种映射需要保存前后顺序，属于特殊的哈希映射。哈希表一般指比较一般情况下的映射。  
 但是哈希映射函数可能会出现哈希冲突的情况，比如有一个数据范围为`0~1e9`的数组，映射到`0~1e5`范围内，使用的映射函数为`h(x) = x MOD 1e5`，这种情况可能会出现某两个数经过哈希映射函数计算的哈希值相同，就发生了冲突。这就是所谓的哈希冲突，解决哈希冲突一般有两种方法：开放寻址法和拉链法。
 #### 开放寻址法
+所谓开放寻址，就是某个点如果发生哈希冲突，就在这个点哈希值加一位置插入数据，如果这个点还有数，就继续往后加，直到为空。
+```cpp
+#include<iostream>
+#include <cstring>
 
+using namespace std;
+
+//一般取质数情况下，发生哈希冲突的概率较低。
+//开放寻址法 一般要数组开大一点.
+//因为h[N]存的是哈希值为N的值是多少
+const int N = 200003,null = 0x3f3f3f3f;
+//按位寻址法
+int h[N];
+int find(int x)
+{
+   //负数模后是负数，所以加N
+    int k = (x % N + N) % N;
+    while(h[k] != null && h[k] != x){
+        k++;
+        //找到头还没找到 就从0开始
+        //一般不会出现找不到的情况，有的话就把数组开大
+        if(k == N) k = 0;
+    }
+    return k;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    //初始化全部为null 以便标记该位置没存过数
+    memset (h, null , sizeof h);
+    while(n --)
+    {
+        char opt[2];
+        int x;
+        scanf("%s%d",opt,&x);
+        //先找到位置，如果是没有的话就返回null。
+        //插入就是把null赋值为x
+        //查找的话 是null就是没找到
+        int k = find(x);
+        if(*opt == 'I') h[k] = x;
+        else
+        {
+            if(h[k] != null) puts("Yes");
+            else puts("No");
+        }
+    }
+    return 0;
+}
+```
 #### 拉链法
-### 字符串哈希
+所谓拉链法，就是某个点如果发生哈希冲突，就在这个点上建立一个链表，然后把数加到链表上。
+```cpp
+#include<iostream>
+#include <cstring>
 
+using namespace std;
+
+//一般取质数情况下，发生哈希冲突的概率较低。
+const int N = 100003;
+
+// 拉链法
+//定义链表，e[idx]存序号为idx的数值，ne[idx]存序号为idx的下一项;
+// h[k]存哈希值为k的第一个数的idx序号
+int h[N],e[N],ne[N],idx;
+
+void insert(int x)
+{
+    //负数模后是负数，所以加N
+    int k = (x % N + N) % N;
+    e[idx] = x;
+    ne[idx] = h[k];
+    h[k] = idx ++;
+}
+
+bool find(int x)
+{
+    int k = (x % N + N) % N;
+    for(int i = h[k]; i != -1 ; i = ne[i])
+    {
+        if(e[i] == x) return true;
+    }
+    return false;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    //初始化全部为-1 以便标记为空
+    memset (h, -1 , sizeof h);
+    while(n --)
+    {
+        char opt[2];
+        int x;
+        scanf("%s%d",opt,&x);
+        if(*opt == 'I') insert(x);
+        else
+        {
+            if(find(x)) puts("Yes");
+            else puts("No");
+        }
+    }
+    return 0;
+}
+```
+### 字符串哈希
+将字符串转换为一串数字然后计算哈希值存入哈希表，如`abcde`中每个字母对应的ASCII码中的编号按顺序为`1 2 3 4 5`（计算方法为`'a' - 'a' + 1`，`'b' - 'a' + 1`，`'c' - 'a' + 1`等）那么可以将这段数字转换为`P`进制数，这样就可以区分不同字符串对应的哈希值。但是如果字符串位数比较多，会出现哈希值溢出的情况，那么就需要取模`Q`运算！
+```cpp
+//一般情况下
+P = 131;//P = 131;
+Q = 1 << 64;
+```
+也可以利用这个算法实现前缀哈希，即某个字符串前`i`位的哈希值。然后我们就可以通过这个数组计算某个子串的哈希值。
