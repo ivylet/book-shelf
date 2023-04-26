@@ -1,3 +1,7 @@
+---
+title: 总览
+weight: 1
+---
 # 计算机组成原理 computer organization
 
 ## 1 计算机系统概述

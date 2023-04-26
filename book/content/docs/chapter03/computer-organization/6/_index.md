@@ -1,3 +1,4 @@
 ---
-title: 计算机网络
+title: 总线 Bus
+weight: 6
 ---
