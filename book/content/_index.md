@@ -1,9 +1,11 @@
 ---
-title: MyBook
+title: 首页其
+weight: 12
 ---
 ## 首页
-<p>首先贴一个github热力图，激励坚持每日写作更新吧！</p>
-<p><img src="https://ghchart.rshah.org/ivylet" /></p>
+首先贴一个github热力图，激励坚持每日写作更新吧!
+
+<img src="https://ghchart.rshah.org/ivylet" />
 
 ### 这是哪?是干嘛的?🤔
 这里是做学习记录的地方，包含了我学习的一些内容与小小的思考。
