@@ -1,7 +1,12 @@
 ---
-title: 首页其
+title: 首页
 weight: 12
 ---
+<br>
+<br>
+<br>
+<p><center>正视自己，分析问题。   </center></p>
+<p><center>记录在案!</center></p>
 ## 首页
 首先贴一个github热力图，激励坚持每日写作更新吧!
 
