@@ -1,5 +1,7 @@
 ---
 title: 小记
+weight: 10
+bookCollapseSection: true
 ---
 为什么要记录？  
 借用知乎上某位网友对问题“语言和文字有本质上的区别吗？”的回答：   
