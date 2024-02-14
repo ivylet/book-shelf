@@ -1,9 +1,0 @@
-[submodule "book/themes/github-style"]
-	path = book/themes/github-style
-	url = git@github.com:MeiK2333/github-style.git
-[submodule "book/themes/diary"]
-	path = book/themes/diary
-	url = git@github.com:AmazingRise/hugo-theme-diary.git
-[submodule "book/themes/hugo-clarity"]
-	path = book/themes/hugo-clarity
-	url = git@github.com:chipzoller/hugo-clarity.git
