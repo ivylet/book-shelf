@@ -1,1 +1,0 @@
-[docker-compose: command not found问题的两种常用方法\_zhiweicoding的博客-CSDN博客](https://blog.csdn.net/sinat_17358633/article/details/128764036)

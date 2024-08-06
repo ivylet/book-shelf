@@ -1,210 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>首页 on QBook</title>
-    <link>http://ivylet.github.io/</link>
-    <description>Recent content in 首页 on QBook</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://ivylet.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>STL中常用算法</title>
-      <link>http://ivylet.github.io/docs/chapter01/cpp-stl-argo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter01/cpp-stl-argo/</guid>
-      <description>STL中常用算法#STL中定义了常用的一些算法，比如遍历，查找，排序等一些算法。
-遍历#for_each 查找#count_if#函数原型为count_if(v.begin(),v.end(),comp)
-v.begin()为开始，v.end()为结束，comp为自定义判断函数。
-举个例子：
-排序#复制与拷贝#算术生成#集合算法#</description>
-    </item>
-    
-    <item>
-      <title>常用算法储备知识</title>
-      <link>http://ivylet.github.io/docs/chapter01/datastru/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter01/datastru/</guid>
-      <description>时间复杂度#对数 ： 每轮排除一半情况 常用于二分法 指数：每轮分别出两倍情况 线性对数：一般为两层循环相互独立，一层为n一层为对数 常常出现在快速排序 空间复杂度#位运算#位运算有（&amp;amp;、|、^、~、&amp;raquo;、&amp;laquo;）这几种方法，以下为正且位数相同的二进制数进行的位运算，但是还会有其他特殊情况，比如二进制数非正，位数不同的情况。
-符号 描述 运算规则 &amp;amp; 与 两个位都为1时，结果才为1 | 或 两个位都为0时，结果才为0 ^ 异或 两个位相同为0，相异为1 ~ 取反 0变1，1变0 &amp;laquo; 左移 各二进位全部左移若干位，高位丢弃，低位补0 &amp;raquo; 右移 各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不同 按位与运算符（&amp;amp;）#定义：参加运算的两个数据，按二进制位进行&amp;quot;与&amp;quot;运算。
-运算规则：同时为1才为1，
-0&amp;amp;0=0 0&amp;amp;1=0 1&amp;amp;0=0 1&amp;amp;1=1 //两位同时为1，结果才为1，否则结果为0。 例如：5&amp;amp;7 即 0000 0101&amp;amp; 0000 0111 = 0000 0101，因此 5&amp;amp;7 的值为5。
-注意：负数按补码形式参加按位与运算。
-与运算的用途：
-清零 如果想将一个单元清零，即使其全部二进制位为0，只要与一个各位都为零的数值相与，结果为零。 取一个数的指定位 比如取数 X=1011 1001 的低4位，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位与运算（X&amp;amp;Y=0000 1001）即可得到X的指定位。 判断奇偶 二进制的奇偶数只需要根据最未位是0还是1来决定，为0就是偶数，为1就是奇数。因此可以用if ((a &amp;amp; 1) == 0)代替if (a % 2 == 0)来判断a是不是偶数。 按位或运算符（|）#定义：参加运算的两个对象，按二进制位进行&amp;quot;或&amp;quot;运算。</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43; STL</title>
-      <link>http://ivylet.github.io/docs/chapter01/cpp-stl-intro/</link>
-      <pubDate>Thu, 10 Nov 2022 11:18:29 +0800</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter01/cpp-stl-intro/</guid>
-      <description>什么是C++标准模板库（STL）？#标准模板库 STL（Standard Template Library），是 C++ 标准库的一部分，不需要单独安装，只需要#include 头文件。
-C++ 对模板（Template）支持得很好，STL 就是借助模板把常用的数据结构及其算法都实现了一遍，并且做到了数据结构和算法的分离。
-C++ 语言的核心优势之一就是便于软件的复用。
-C++ 语言有两个方面体现了复用：
-面向对象的继承和多态机制 通过模板的概念实现了对泛型程序设计的支持 C++中的模板，就好比英语作文的模板，只换主题，不换句式和结构。对应到C++模板，就是只换类型，不换方法。
-STL有什么优势？#STL封装了很多实用的容器，省时省力，能够让你将更多心思放到解决问题的步骤上，而非费力去实现数据结构诸多细节上，像极了用python时候的酣畅淋漓。
-STL到底有什么？#六大部件:
-容器 分配器 算法 迭代器 适配器 仿函数 自定义#vector 矢量#定义#使用前需添加头文件
-#include&amp;lt;vector&amp;gt; using namespace std; 像定义变量一样定义vector变量：
-vector&amp;lt;类型名&amp;gt; 变量名; 类型名可以是int、double、char、struct，也可以是STL容器：vector、set、queue。
-vector&amp;lt;int&amp;gt; name; vector&amp;lt;double&amp;gt; name; vector&amp;lt;char&amp;gt; name; vector&amp;lt;struct node&amp;gt; name; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; name; vector数组就是一个一维数组,如果定义成vector数组的数组，那就是二维数组**。**
-vector&amp;lt;int&amp;gt; array[SZIE]; //二维变长数组 在此，我送你一句话非常受用的话：低维是高维的地址。
-二维数组中，它的一维形式就是地址。例如：
-#include &amp;lt;iostream&amp;gt; using namespace std; int main(){ int arr[3][2];//定义一个3行2列的地址 cout&amp;lt;&amp;lt;arr[0]&amp;lt;&amp;lt;endl; //输出arr第1行的地址 cout&amp;lt;&amp;lt;arr[1]&amp;lt;&amp;lt;endl; //输出arr第2行的地址 cout&amp;lt;&amp;lt;arr[2]&amp;lt;&amp;lt;endl; //输出arr第3行的地址 return 0; } 输出：</description>
-    </item>
-    
-    <item>
-      <title>寻找数组的中心索引</title>
-      <link>http://ivylet.github.io/docs/chapter05/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E7%B4%A2%E5%BC%95/</link>
-      <pubDate>Mon, 27 Feb 2023 18:18:19 +0800</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter05/%E5%AF%BB%E6%89%BE%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E5%BF%83%E7%B4%A2%E5%BC%95/</guid>
-      <description>题目#给你一个整数数组&amp;nbsp;nums ，请计算数组的 中心下标 。
-数组 中心下标 是数组的一个下标，其左侧所有元素相加的和等于右侧所有元素相加的和。
-如果中心下标位于数组最左端，那么左侧数之和视为 0 ，因为在下标的左侧不存在元素。这一点对于中心下标位于数组最右端同样适用。
-如果数组有多个中心下标，应该返回 最靠近左边 的那一个。如果数组不存在中心下标，返回 -1 。
-&amp;nbsp;
-示例 1：
-输入：nums = [1, 7, 3, 6, 5, 6] 输出：3 解释： 中心下标是 3 。 左侧数之和 sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11 ， 右侧数之和 sum = nums[4] + nums[5] = 5 + 6 = 11 ，二者相等。 示例 2：
-输入：nums = [1, 2, 3] 输出：-1 解释： 数组中不存在满足此条件的中心下标。 示例 3：</description>
-    </item>
-    
-    <item>
-      <title>搜索插入位置</title>
-      <link>http://ivylet.github.io/docs/chapter05/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</link>
-      <pubDate>Mon, 27 Feb 2023 18:17:27 +0800</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter05/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</guid>
-      <description>题目#给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
-请必须使用时间复杂度为 O(log n) 的算法。
-&amp;nbsp;
-示例 1:
-输入: nums = [1,3,5,6], target = 5 输出: 2 示例&amp;nbsp;2:
-输入: nums = [1,3,5,6], target = 2 输出: 1 示例 3:
-输入: nums = [1,3,5,6], target = 7 输出: 4 &amp;nbsp;
-提示:
-1 &amp;lt;= nums.length &amp;lt;= 104 -104 &amp;lt;= nums[i] &amp;lt;= 104 nums 为&amp;nbsp;无重复元素&amp;nbsp;的&amp;nbsp;升序&amp;nbsp;排列数组 -104 &amp;lt;= target &amp;lt;= 104 分析#这题主要是用二分查找来解决。直接进行遍历没有充分考虑到所给的数组有序的条件，以及时间复杂度的要求~
-题解#class Solution { public: int searchInsert(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { int high = nums.</description>
-    </item>
-    
-    <item>
-      <title>DP</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/DP/DP/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/DP/DP/</guid>
-      <description>背包DP#01背包#每件物品最多只用一次。
-有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。 第 i 件物品的体积是 vi，价值是 wi。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
-输出最大价值。 2. 01背包问题 - AcWing题库
-#include&amp;lt;iostream&amp;gt; using namespace std; const int N = 1010; int v[N],w[N]; int m,n; int f[N][N]; int main(){ cin &amp;gt;&amp;gt; m &amp;gt;&amp;gt; n; for(int i = 1; i &amp;lt;= m;i++ ){ cin &amp;gt;&amp;gt; v[i] &amp;gt;&amp;gt; w[i]; } for(int i = 1; i &amp;lt;= m;i++){ for(int j = 0;j&amp;lt;= n;j++) { f[i][j] = f[i - 1][j]; if( j &amp;gt;= v[i]) //当可以装下的空间比第i个大才有可能存在装第i个物品的情况。 f[i][j] = max(f[i][j],f[i - 1][j - v[i]] + w[i]); } } cout &amp;lt;&amp;lt; f[m][n]; return 0; } 优化为二维</description>
-    </item>
-    
-    <item>
-      <title>背包问题</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/DP/package/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/DP/package/</guid>
-      <description>01 背包问题#每件物品最多只用一次。
-有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。 第 i 件物品的体积是 vi，价值是 wi。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
-输出最大价值。 2. 01背包问题 - AcWing题库
-#include&amp;lt;iostream&amp;gt; using namespace std; const int N = 1010; int v[N],w[N]; int m,n; int f[N][N]; int main(){ cin &amp;gt;&amp;gt; m &amp;gt;&amp;gt; n; for(int i = 1; i &amp;lt;= m;i++ ){ cin &amp;gt;&amp;gt; v[i] &amp;gt;&amp;gt; w[i]; } for(int i = 1; i &amp;lt;= m;i++){ for(int j = 0;j&amp;lt;= n;j++) { f[i][j] = f[i - 1][j]; if( j &amp;gt;= v[i]) //当可以装下的空间比第i个大才有可能存在装第i个物品的情况。 f[i][j] = max(f[i][j],f[i - 1][j - v[i]] + w[i]); } } cout &amp;lt;&amp;lt; f[m][n]; return 0; } 优化为二维</description>
-    </item>
-    
-    <item>
-      <title>常用工具</title>
-      <link>http://ivylet.github.io/docs/chapter03/machine-learning/tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter03/machine-learning/tools/</guid>
-      <description>数据集网站#UC Irvine Machine Learning Repository</description>
-    </item>
-    
-    <item>
-      <title>第一章</title>
-      <link>http://ivylet.github.io/docs/chapter05/part1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter05/part1/</guid>
-      <description>线性表
-#include&amp;lt;stdio.h&amp;gt; #define ElementType int #define MAXSIZE 10 typedef struct SqList{ ElementType data[MAXSIZE]; int length; }SqList; void InitSqueList(SqList sq){ sq.length = 0; } void InsertSqueList(SqList* sq, int x){ (*sq).data[0] = x; } int main() { SqList sq; InitSqueList(sq); InsertSqueList(&amp;amp;sq,1); printf(&amp;#34;%d\n&amp;#34;,sq.length); printf(&amp;#34;%d&amp;#34;,sq.data[0]); return 0; } 线性存储 链式存储</description>
-    </item>
-    
-    <item>
-      <title>基础算法一</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/base/base-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/base/base-1/</guid>
-      <description>快速排序#主要思想:#在数组中选择一个值，然后遍历数组，比这个值大的放到这个值后边，比这个值小的放到这个值的前边。
-代码实现#void quick_sort(int q[], int l, int r){ if(l &amp;gt;= r) return; int x = q[(l + r) &amp;gt;&amp;gt; 1], i = l - 1, j = r + 1; while(i &amp;lt; j) { do i ++ ; while(q[i] &amp;lt; x); do j -- ; while(q[j] &amp;gt; x); if(i &amp;lt; j) swap(q[i],q[j]); } quick_sort(q,l, j); quick_sort(q,j+1,r); } 为什么最后是j与j+1呢?
-因为范围确保的是左边是小于等于x，右边大于等于x。而循环判断结束的限制是i&amp;lt;j,则可能出现的情况是i=j或i = j + 1。如果是i=j+1那么左边为l到i不满足左边都小于等于x，因为q[i]&amp;gt;x。那为什么不是l到i-1呢？如果是l到i-1那么可能出现只有两个数的情况，然后划分的时候右边化为空集，左边为两个数的数组，此时陷入无尽循环。</description>
-    </item>
-    
-    <item>
-      <title>其他</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/math/others/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/math/others/</guid>
-      <description>秦九韶算法#使用秦九韶算法可以计算多项式的值，或进制转换。 例子：计算多项式的值。a[i]表示多项式中的x的i次幂的系数。
-#include&amp;lt;iostream&amp;gt; using namespace std; int n,x,ans,a[21]; int main(){ cin&amp;gt;&amp;gt;n; for(int i=0;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;a[i]; cin&amp;gt;&amp;gt;x; ans=a[n]; for(int i=1;i&amp;lt;=n;i++) ans=ans*x+a[n-i]; cout&amp;lt;&amp;lt;ans; return 0; } </description>
-    </item>
-    
-    <item>
-      <title>数据结构</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/base/datestruct/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/base/datestruct/</guid>
-      <description>链表#拿数组模拟链表,其实也就是静态链表. 静态链表的优点是快,但是缺点是必须要提前分配足够空间,并且可能会出现假满状态,即idx到最后但是前边还有很多未使用的节点,
-单链表##include&amp;lt;iostream&amp;gt; using namespace std; const int N = 100010; int e[N]; int ne[N]; int idx,head; void init(){ head = -1; idx = 0; } void add_to_head(int x){ e[idx] = x; ne[idx] = head; head = idx++; } //插入到下标为k的后面 void add(int k,int x){ e[idx] = x; ne[idx] = ne[k]; ne[k] = idx ++; } void del(int k){ if(k == -1) head = ne[head]; else ne[k] = ne[ne[k]]; } int main(){ int m; cin &amp;gt;&amp;gt; m; init(); while(m--){ char opt; cin &amp;gt;&amp;gt; opt; if(opt == &amp;#39;H&amp;#39;){ int x; cin &amp;gt;&amp;gt; x; add_to_head(x); }else if(opt == &amp;#39;D&amp;#39;){ int k; cin &amp;gt;&amp;gt; k; del(k-1); }else{ int k,x; cin &amp;gt;&amp;gt; k &amp;gt;&amp;gt;x; add(k - 1,x); } } int index = head; while(index !</description>
-    </item>
-    
-    <item>
-      <title>数论</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/math/shulun/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/math/shulun/</guid>
-      <description>质数#针对所有大于1的自然数定义的，只包含1和本身两个约数的自然数叫做质数（素数）。
-质数的判定#试除法#bool is_prime(int n){ if(n &amp;lt; 2) return false; for(int i = 2; i &amp;lt;= n ; i++){ if(n % i == 0) return false; } return true; } O(n); 如果i包含其他因子，那么这因子应该是成双成对出现的。比如12的因子有{1,2,3,4,6,12}。 这里只需要遍历成对中的第一个就可以了， 如果n可以被d整除，证明d是n的一个因子，那么另外一个与其对应的因子是n除以n除以d的商。所以我只需要遍历到第一个因子就可以了，即d满足大于n除以d的商，d大于根号n就OK。时间复杂度可以降到根号n。
-bool is_prime(int n){ if(n &amp;lt; 2) return false; for(int i = 2; i &amp;lt;= n / i ; i++){ if(n % i == 0) return false; } return true; } O(sqrt(n)); 不使用sqrt(i)可以降低时间复杂度，每次循环都会计算一次。如果使用i * i &amp;lt;= n，则可能存在 i * i溢出风险，变成负值。</description>
-    </item>
-    
-    <item>
-      <title>搜索与图论</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/base/search_and_graph/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/base/search_and_graph/</guid>
-      <description>图论#Floyd算法#主要思想是: 循环邻接矩阵中查找每个点到另外一个点的最短距离，不仅是看直接距离，也还要通过计算中转点。比如计算A到B的距离，要比较A到C的距离与C到B的距离的和、A到B的直接距离的最小值来判断，中转点可以是其他节点，所以代码实现中出现了三重循环。
-//n为顶点个数 //第一轮循环为 选取中间点的个数 //第二三轮循环为 void floyd(){ for(int k = 1 ; k &amp;lt;=n ; k++) for(int i = 1 ; i &amp;lt;= n ;i ++) for(int j = 1 ; j &amp;lt;=n ;j ++) dic[i][j] = min(dic[i][j],dic[i][k] + dic[k][j]); } 模板题代码：
-#include&amp;lt;iostream&amp;gt; using namespace std; const int N = 210,INF = 1e9; int dic[N][N]; int n,m,Q; void floyd(){ for(int k = 1 ; k &amp;lt;=n ; k++) for(int i = 1 ; i &amp;lt;= n ;i ++) for(int j = 1 ; j &amp;lt;=n ;j ++) dic[i][j] = min(dic[i][j],dic[i][k] + dic[k][j]); } int main(){ scanf(&amp;#34;%d%d%d&amp;#34;,&amp;amp;n,&amp;amp;m,&amp;amp;Q); for(int i = 1 ; i &amp;lt;= n ;i ++) for(int j = 1 ; j&amp;lt;=n;j++) if(i == j) dic[i][j] = 0; else dic[i][j] = INF; while(m--) { int a,b,w; scanf(&amp;#34;%d%d%d&amp;#34;,&amp;amp;a,&amp;amp;b,&amp;amp;w); dic[a][b] = min(dic[a][b],w); } floyd(); while(Q--) { int a,b; scanf(&amp;#34;%d%d&amp;#34;,&amp;amp;a,&amp;amp;b); if(dic[a][b] &amp;lt; INF / 2) printf(&amp;#34;%d&amp;#34;,dic[a][b]); else printf(&amp;#34;impossible&amp;#34;); printf(&amp;#34;\n&amp;#34;); } return 0; } </description>
-    </item>
-    
-    <item>
-      <title>算法竞赛常用STL</title>
-      <link>http://ivylet.github.io/docs/chapter01/argo-datastru/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter01/argo-datastru/</guid>
-      <description>数据结构#vector[可变数组]#vector是一种变长数组，即可以自动改变长度的数组。 头文件
-#include&amp;lt;vector&amp;gt; 初始化
-#include&amp;lt;iostream&amp;gt; #include&amp;lt;vector&amp;gt; using namespace std; int main () { //几种初始化的方法 vector&amp;lt;int&amp;gt; a;//定义一个vector 未初始化 输出》 0 vector&amp;lt;int&amp;gt; a(3);//定义一个长度为3的vector 未初始化 输出》0 0 0 vector&amp;lt;int&amp;gt; a(10, 3); //定义一个长度为10，且每个数赋值为3 //将向量b中从下标0 1 2（共三个）的元素赋值给a，a的类型为int型 //它的初始化不和数组一样 vector&amp;lt;int&amp;gt;a(b.begin(),b.begin+3); //从数组中获得初值 int b[7]={1,2,3,4,5,6,7}; vector&amp;lt;int&amp;gt; a(b,b+7）; for(auto x : a) {//遍历输出 cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34;; } return 0; } 相关函数
-a.size();//返回元素个数 a.resize();//改变大小 a.empty();//判断a是否为空，空则返回true，非空则返回false a.front(); //返回a的第1个元素,当且仅当a存在 a.back(); //返回vector的最后一个数 a.clear(); //清空a中的元素 a.pop_back(); //删除a向量的最后一个元素 a.</description>
-    </item>
-    
-    <item>
-      <title>贪心</title>
-      <link>http://ivylet.github.io/docs/chapter02/acwing/base/greedy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ivylet.github.io/docs/chapter02/acwing/base/greedy/</guid>
-      <description>与区间有关的问题#</description>
-    </item>
-    
-  </channel>
-</rss>
