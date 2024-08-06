@@ -1,0 +1,600 @@
+---
+title: 数据结构
+---
+## 链表
+拿数组模拟链表,其实也就是静态链表.
+静态链表的优点是快,但是缺点是必须要提前分配足够空间,并且可能会出现假满状态,即`idx`到最后但是前边还有很多未使用的节点,
+#### 单链表
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int N = 100010;
+
+int e[N];
+int ne[N];
+int idx,head;
+
+void init(){
+    head = -1;
+    idx = 0;
+}
+
+void add_to_head(int x){
+    e[idx] = x;
+    ne[idx] = head;
+    head = idx++;
+}
+
+//插入到下标为k的后面
+void add(int k,int x){
+    e[idx] = x;
+    ne[idx] = ne[k];
+    ne[k] = idx ++;
+}
+
+void del(int k){
+    if(k == -1) head = ne[head];
+    else ne[k] = ne[ne[k]];
+}
+int main(){
+    int m;
+    cin >> m;
+    init();
+    while(m--){
+        char opt;
+        cin >> opt;
+        if(opt == 'H'){
+            int x;
+            cin >> x;
+            add_to_head(x);
+        }else if(opt == 'D'){
+            int k;
+            cin >> k;
+            del(k-1);
+        }else{
+            int k,x;
+            cin >> k >>x;
+            add(k - 1,x);
+        }
+    }
+    int index = head;
+    while(index != -1){
+        cout << e[index] << " ";
+        index = ne[index];
+    }
+    return 0;
+}
+```
+#### 双链表
+所谓双链表就是每个节点含有前结点位置进而后节点位置.
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int N = 100010;
+
+int pre[N],ne[N],e[N];
+int idx;
+// 定义0号位为头结点
+// 定义1号位为尾结点
+void init(){
+    ne[0] = 1;
+    pre[0] = -1;
+    ne[1] = -1;
+    pre[1] = 0;
+    idx = 2;
+}
+
+void add_head(int x){
+    e[idx] = x;
+    ne[idx] = ne[0];
+    pre[idx] = 0;
+    pre[ne[0]] = idx;
+    ne[0] = idx;
+    idx ++;
+}
+
+void add_tail(int x){
+    e[idx] = x;
+    ne[idx] = 1;
+    pre[idx] = pre[1];
+    ne[pre[1]] = idx;
+    pre[1] = idx;
+    idx++;
+}
+
+void del(int k){
+    ne[pre[k]] = ne[k];
+    pre[ne[k]] =  pre[k];
+}
+
+void add_left(int k,int x){
+    e[idx] = x;
+    ne[idx] = k;
+    pre[idx] = pre[k];
+    ne[pre[k]] = idx;
+    pre[k] = idx;
+    idx ++;
+}
+
+void add_right(int k,int x){
+    e[idx] = x;
+    ne[idx] = ne[k];
+    pre[idx] = k;
+    pre[ne[k]] = idx;
+    ne[k] = idx;
+    idx++;
+}
+
+int main(){
+    int m;
+    cin >> m;
+    init();
+    while(m --){
+        string opt;
+        int k,x;
+        cin >> opt;
+        if(opt == "L"){
+            cin >> x;
+            add_head(x);
+        }if(opt == "R"){
+            cin >> x;
+            add_tail(x);
+        }if(opt == "D"){
+            cin >> k;
+            del(k + 1);
+        }if(opt == "IL"){
+            cin >> k >> x;
+            add_left(k + 1,x);
+        }if(opt == "IR"){
+            cin >> k >> x;
+            add_right(k + 1,x);
+        }
+    }
+    int j = 0;
+    for(int i = ne[0]; ne[i] != -1; i = ne[i]){
+        cout<< e[i] << " ";
+    }
+    return 0;
+}
+```
+## 栈和队列
+使用数组实现基本的栈与队列
+### 模拟栈
+```cpp
+const int N = 1010;
+//栈
+int stk[N],tt = -1;
+//入栈
+stk[++tt] = elem;
+//出栈
+stk[tt--];
+//栈是否为空
+if tt < 0  stack is empty
+else stack is not empty
+```
+完整操作代码
+```cpp
+const int N = 100010;
+int stk[N],idx;
+//初始化
+void init(){
+    idx = -1;
+}
+//插入元素
+void push(int x){
+    stk[++idx] = x;
+}
+//取出栈顶元素
+int pop(){
+   int res = stk[idx--];
+   return res;
+}
+//判断是否为空
+bool isEmpty(){
+    if(idx < 0) return true;
+    else return false;
+}
+//获取栈顶元素
+int pull(){
+    return stk[idx];
+}
+```
+### 模拟队列
+```cpp
+const int N = 1010;
+//栈
+int queue[N],tt,hh;
+//入队
+queue[tail++] = elem;
+//出队
+queue[top++];
+```
+完整操作
+```cpp
+const int N = 100010;
+int queue[N],top,tail;
+//初始化
+void init(){
+    top = -1;
+    tail = -1;
+}
+//插入元素到队尾
+void push(int x){
+    queue[++tail] = x;
+}
+//弹出队列队首元素
+int pop(){
+   int res = queue[++top];
+   return res;
+}
+//队列是否空
+bool isEmpty(){
+    if(top >= tail) 
+        return true;
+    else 
+        return false;
+}
+//返回队列队首元素
+int pull(){
+    return queue[top + 1];
+}
+```
+## 单调栈与单调队列
+### 单调栈
+##### 定义
+什么是单调栈?
+栈中的数据具有单调性.现在有一组数`10,3,7,4,12`从左到右依次入栈，则如果**栈为空**或**入栈元素值小于栈顶元素值**，则入栈；否则，如果入栈则会破坏栈的单调性，则需要把比入栈元素小的元素全部出栈。单调递减的栈反之。
+##### 应用场景
+给定一个序列,求每个元素左边(或右边)最近的比它小(或大)的元素.其实就是找逆序对,最近的两个构成逆序就输出,未找到就返回-1.  
+如下图所示,
+4找3,满足,则返回3;
+2往前找4,不满足,找3,也不满足,则返回-1;
+7往前找2(如果2满足,则无需考虑2之前的数据),满足则返回2.
+5往前找7,不满足,则去找2,满足,则返回2.
+![4062adb643c4035eaf9b0c866d3d19e.jpg](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304061705690.jpg)
+
+如果满足逆序则保留,不满足则不保留
+(因为如果保留,则当前点不满足,上一个点也不满足,需要多遍历,
+例如序列`5 4 3 1 2`, 考虑`3`时,`5 4`是非逆序,那么`4`不满足,`5`同样不满足)
+这种情况使用栈最好,因为考虑的数据是按照后进先出的顺序读取.
+##### 主要代码
+```cpp
+#include<iostream>
+using namespace std;
+const int N = 10010;
+int stk[N].idx = 0;
+int main(){
+    int n;
+    cin >> n;
+    for(int i = 0 ; i < n ; i++){
+        int x;
+        cin >> x;
+        while(idx && stk[idx] >= x) idx--;
+        if(idx) cout << stk[idx] << " ";
+        else cout << "-1" << " ";
+        stk[++idx] = x;
+    }
+    return 0;
+}
+```
+### 单调队列
+##### 定义
+什么是单调队列?
+有单调性的队列!
+##### 应用场景
+输入一个数组,并且有长度为`k`的滑动窗口不断向右移动,求每移动一次后窗口中元素的最大(小)值.滑动窗口求最值.   
+先考虑暴力解法,再进行优化,考虑哪些没有用到却被操作.  
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int N = 1000010;
+
+int n,k;
+int a[N],q[N];
+int hh,tt;
+
+int main(){
+    scanf("%d%d",&n,&k);
+    for(int i = 0 ; i < n ; i++) scanf("%d",&a[i]);
+    
+    int hh = 0, tt = 0;
+    
+    for(int i = 0 ; i < n ; i++ ){
+        //判断队头是否已经滑出窗口,即当窗口长度为3时
+        //,i = 3,hh = 0时,这个3长度的窗口 已经不包括 队首了 所以需要hh++
+        //一般情况只需要加一次,所以用的是if 不是while
+        if(hh <= tt && i - k + 1 > q[hh]) hh++;
+        //队列如果加入新元素后不是单调的,就要出队,
+        //直到满足队列为单调的
+        // 比如 当前窗口内为 3 -1 -3 ,
+        //那么3 -1 就是属于无效数据,因为-3是最小的
+        //在往后移动的过程中,只要有-3 前边都不考虑
+        //这种情况 也可以看成 不满足单调性
+        while(hh <= tt && a[q[tt]] >= a[i]) tt--;
+        //入队新元素
+        q[++tt] = i;
+        //只要过了k个数 就要输出队头元素
+        if(i >= k - 1) printf("%d ",a[q[hh]]); 
+    }
+    printf("\n");
+    hh = tt = 0; 
+    for(int i = 0 ; i < n ; i ++){
+        if(hh <= tt && i - k + 1 > q[hh]) hh++;
+        while(hh <= tt && a[q[tt]]<= a[i]) tt--;
+        q[++tt] = i;
+        if(i >= k - 1) printf("%d ",a[q[hh]]);
+    }
+    return 0;
+}
+```
+
+## KMP
+KMP是一种字符串匹配算法,该算法充分体现了利用已有信息降低操作数,即时间复杂度.
+完整代码
+```cpp
+#include<iostream>
+
+using namespace std;
+
+const int M = 1e6 + 10, N = 1e5 + 10;
+//定义 字符串 str 与 模板串 ptn
+char str[M],ptn[N];
+int n,m;
+// 定义next数组
+int ne[N];
+
+int main()
+{
+    scanf("%d%s%d%s",&n,ptn + 1,&m,str+1);
+	//next数组第一位是0 所以从第二位开始
+	// 计算next数组
+    for(int i = 2 , j = 0 ; i <= n ; i++)
+    {
+	    // 如果j是0 就没办法再往前了
+	    // 如果当前与
+        while(j && ptn[i] != ptn[j + 1])j = ne[j];
+        if(ptn[i] == ptn[j+1]) j ++;
+        ne[i] = j;
+    }
+    
+    for(int i = 1 , j = 0 ; i <= m ; i++)
+    {
+        while(j && str[i] != ptn[j + 1]) j = ne[j];
+        if(str[i] == ptn[j + 1]) j ++;
+        if(j == n)
+        {
+            printf("%d ",i - n);
+            j = ne[j];
+        }
+    }
+    return 0;
+}
+```
+## Trie树(字典树)
+“Trie这个名字取自“retrieval”，检索，因为Trie可以只用一个前缀便可以在一部字典中找到想要的单词。”
+##### 什么是Trie树
+高效地存储与查找字符串集合的数据结构.用树结构来存储字符串集合,举例:
+对于某字符串集合`{"abcde","abdcf","acde","acfd","abc","bd"}`.有下面这种存储方法.带星号表示从头往下查找到这个地方算一个字符串,
+![](https://cdn.staticaly.com/gh/ivylet/blog_picg-@master/img/202304160945183.jpg)
+##### 基本思想
+如果是存小写字母组成的字符串集合,那么`a-z`对应的是`0-25`,如果是大写字母或其他情况同理.每次新加一个字符串中的一个字符,都要给这个字符上一个序号idx.每个需要都要记录它的子节点.比如`son[idx][u]`记录了序号为`idx`的子节点`u`的下一个节点指向的序号.  
+打个比方:字符串`abcd`存入时有这种情况
+```cpp
+son[0]['a' - 'a'] = 1;//初始节点的后继节点a的序号是1
+son[1]['b' - 'a'] = 2;//序号为1的后继节点b的序号是2
+son[2]['c' - 'a'] = 3;//序号为2的后继节点c的序号是3
+son[3]['d' - 'a'] = 4;//序号为3的后继节点d的序号是4
+```
+如果我继续存入`abcf`
+```cpp
+son[0]['a' - 'a'] = 1;//初始节点的后继节点a的序号是1
+son[1]['b' - 'a'] = 2;//序号为1的后继节点b的序号是2
+son[2]['c' - 'a'] = 3;//序号为2的后继节点c的序号是3
+//abcf中abc节点都已经存过,所以不需要增加序号
+//f属于abc这一子树的新节点,所以需要赋予新序号5
+//如果要查找abcf后续节点x,则需要从5开始
+//即son[5][x - 'a'] = idx; idx表示 x 的序号,如果不存在则为0;
+son[3]['f' - 'a'] = 5;//序号为3的后继节点f的序号是5
+```
+那么又一个问题来了。我怎么知道往下哪个是字符串结束呢？比如我存入`abc`和`abcd`两个字符串。怎么判断`abc`在里面。这里我们使用一个`cnt[p]`数组，该数组存的是以序号p的字符结尾的字符串个数. 。
+依托这个数组,我们可以得到在字符串集合`{"abc","abcd"}`中`cnt[3] = 1; cnt[4] = 1;`代表以字符序号为3和4结尾的字符串各出现了一次.  
+##### 主要代码
+```cpp
+#include<iostream>
+using namespace std;
+const int N = 1e5 + 10;
+//son[i][j] 表示编号为i的j儿子的后继节点数
+int son[N][26],cnt[N];
+char str[N];
+int n,idx;
+void insert(char x[])
+{
+    int p = 0;
+    for(int i = 0 ; x[i] ;i++)
+    {
+        int u = x[i] - 'a';
+        //如果不存在节点，则新建一个，然后新节点标号为++idx。
+        //++idx表示给新节点上个序号,盖个出生证明
+        if(!son[p][u]) son[p][u] = ++idx;
+        //如何找到下一个节点?
+        //son[p][u]为节点序号为
+        //p的节点的子节点为u的节点的下一个节点序号
+        p = son[p][u];
+    }
+    //表示以节点序号为p结尾的字符串个数.
+    cnt[p] ++;
+}
+
+int query(char x[])
+{
+    int p = 0;
+    for(int i = 0 ; x[i] ; i++)
+    {
+        int u = x[i] - 'a';
+        if(!son[p][u]) return 0 ;
+        p = son[p][u];
+    }
+    return cnt[p];
+}
+int main()
+{
+    scanf("%d",&n);
+    while(n --){
+        char opt;
+        cin >> opt >> str;
+        if(opt == 'I')insert(str);
+        else printf("%d\n",query(str));
+    }
+    return 0;    
+}
+```
+## 并查集
+##### 应用场景
+适用于维护集合之间的合并，与查询两个数是否在同一个集合内的情况。
+##### 核心代码
+```cpp
+int p[N];
+// 压缩路径版本
+// 即每次查询 都将集合中的节点指向根节点
+int find(int x){
+	if (p[x] != x) p[x] = find(p[x]);
+	return p[x];
+}
+// 预处理，代表每一个数都属于单独的集合，集合编号为i
+for(int i = 1 ; i <= n ; i++) p[i] = i;
+
+//合并操作
+void merge(int a,int b)
+{
+	p[find(a)] = find(b);
+}
+//查询操作
+void query(int a,int b)
+{
+	if(find(a) == find(b)) puts("Yes");
+	else puts("No");
+}
+```
+
+## 哈希表
+### 哈希表存储结构
+将一个集合中的数通过一个函数映射到另外一个集合中。例如离散化中，将大范围中的数据映射到小范围的区间上，这是一种哈希映射，但这种映射需要保存前后顺序，属于特殊的哈希映射。哈希表一般指比较一般情况下的映射。  
+但是哈希映射函数可能会出现哈希冲突的情况，比如有一个数据范围为`0~1e9`的数组，映射到`0~1e5`范围内，使用的映射函数为`h(x) = x MOD 1e5`，这种情况可能会出现某两个数经过哈希映射函数计算的哈希值相同，就发生了冲突。这就是所谓的哈希冲突，解决哈希冲突一般有两种方法：开放寻址法和拉链法。
+#### 开放寻址法
+所谓开放寻址，就是某个点如果发生哈希冲突，就在这个点哈希值加一位置插入数据，如果这个点还有数，就继续往后加，直到为空。
+```cpp
+#include<iostream>
+#include <cstring>
+
+using namespace std;
+
+//一般取质数情况下，发生哈希冲突的概率较低。
+//开放寻址法 一般要数组开大一点.
+//因为h[N]存的是哈希值为N的值是多少
+const int N = 200003,null = 0x3f3f3f3f;
+//按位寻址法
+int h[N];
+int find(int x)
+{
+   //负数模后是负数，所以加N
+    int k = (x % N + N) % N;
+    while(h[k] != null && h[k] != x){
+        k++;
+        //找到头还没找到 就从0开始
+        //一般不会出现找不到的情况，有的话就把数组开大
+        if(k == N) k = 0;
+    }
+    return k;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    //初始化全部为null 以便标记该位置没存过数
+    memset (h, null , sizeof h);
+    while(n --)
+    {
+        char opt[2];
+        int x;
+        scanf("%s%d",opt,&x);
+        //先找到位置，如果是没有的话就返回null。
+        //插入就是把null赋值为x
+        //查找的话 是null就是没找到
+        int k = find(x);
+        if(*opt == 'I') h[k] = x;
+        else
+        {
+            if(h[k] != null) puts("Yes");
+            else puts("No");
+        }
+    }
+    return 0;
+}
+```
+#### 拉链法
+所谓拉链法，就是某个点如果发生哈希冲突，就在这个点上建立一个链表，然后把数加到链表上。
+```cpp
+#include<iostream>
+#include <cstring>
+
+using namespace std;
+
+//一般取质数情况下，发生哈希冲突的概率较低。
+const int N = 100003;
+
+// 拉链法
+//定义链表，e[idx]存序号为idx的数值，ne[idx]存序号为idx的下一项;
+// h[k]存哈希值为k的第一个数的idx序号
+int h[N],e[N],ne[N],idx;
+
+void insert(int x)
+{
+    //负数模后是负数，所以加N
+    int k = (x % N + N) % N;
+    e[idx] = x;
+    ne[idx] = h[k];
+    h[k] = idx ++;
+}
+
+bool find(int x)
+{
+    int k = (x % N + N) % N;
+    for(int i = h[k]; i != -1 ; i = ne[i])
+    {
+        if(e[i] == x) return true;
+    }
+    return false;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    //初始化全部为-1 以便标记为空
+    memset (h, -1 , sizeof h);
+    while(n --)
+    {
+        char opt[2];
+        int x;
+        scanf("%s%d",opt,&x);
+        if(*opt == 'I') insert(x);
+        else
+        {
+            if(find(x)) puts("Yes");
+            else puts("No");
+        }
+    }
+    return 0;
+}
+```
+### 字符串哈希
+将字符串转换为一串数字然后计算哈希值存入哈希表，如`abcde`中每个字母对应的ASCII码中的编号按顺序为`1 2 3 4 5`（计算方法为`'a' - 'a' + 1`，`'b' - 'a' + 1`，`'c' - 'a' + 1`等）那么可以将这段数字转换为`P`进制数，这样就可以区分不同字符串对应的哈希值。但是如果字符串位数比较多，会出现哈希值溢出的情况，那么就需要取模`Q`运算！
+```cpp
+//一般情况下
+P = 131;//P = 131;
+Q = 1 << 64;
+```
+也可以利用这个算法实现前缀哈希，即某个字符串前`i`位的哈希值。然后我们就可以通过这个数组计算某个子串的哈希值。

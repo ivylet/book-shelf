@@ -1,0 +1,54 @@
+site_name: My Docs
+theme:
+  palette:
+    scheme: slate
+  name: material
+  features:
+    - content.tooltips
+    - navigation.sections
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  icon:
+    logo: logo
+
+# Page tree
+nav:
+  - 首页: index.md
+  - 生活点滴:
+    - Installation: chapter01/_index.md
+    - 吃的好啊: chapter02/_index.md
+  - 知识文档:
+    - chapter02/_index.md
+  - 读书心得:
+    - readingnotes/index.md
+  - 兴趣爱好:
+    - chapter02/_index.md
+  - 联系我:
+    - chapter02/_index.md
+  - 归档/历史文章: 
+    - 2023:
+      - 2023/11: chapter02/_index.md
+   
